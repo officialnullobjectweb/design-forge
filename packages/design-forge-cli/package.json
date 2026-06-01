@@ -1,0 +1,25 @@
+{
+  "name": "@design-forge/cli",
+  "version": "1.0.0",
+  "description": "One-command setup for your design project. Install only what you need from 100+ free design resources.",
+  "bin": {
+    "design-forge": "bin/cli.js",
+    "df": "bin/cli.js"
+  },
+  "main": "index.js",
+  "files": [
+    "bin/",
+    "index.js",
+    "consistency/",
+    "resources/"
+  ],
+  "keywords": ["design", "ui", "design-system", "templates", "cli", "tailwind", "shadcn-ui", "resources"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/officialnullobjectweb/design-forge"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "ui-components": [
+    { "name": "shadcn/ui", "description": "Beautifully designed components that you can copy-paste into your apps", "url": "https://ui.shadcn.com", "category": "ui-components", "install": "npx shadcn@latest init -d", "size": "small", "tags": ["react", "tailwind", "radix"] },
+    { "name": "daisyUI", "description": "The most popular component library for Tailwind CSS", "url": "https://daisyui.com", "category": "ui-components", "install": "npm i -D daisyui@latest", "size": "small", "tags": ["tailwind", "css", "components"] },
+    { "name": "Magic UI", "description": "50+ animated and interactive React components built with Tailwind CSS", "url": "https://magicui.design", "category": "ui-components", "install": "npm install magicui", "size": "small", "tags": ["react", "tailwind", "animations"] },
+    { "name": "Aceternity UI", "description": "Copy-paste the most trending components and use them on your websites", "url": "https://ui.aceternity.com", "category": "ui-components", "install": "npx create-aceternity-ui", "size": "small", "tags": ["react", "tailwind", "animations"] },
+    { "name": "Radix UI", "description": "Unstyled, accessible components for building high-quality design systems", "url": "https://radix-ui.com", "category": "ui-components", "install": "npm install @radix-ui/react-dialog @radix-ui/react-dropdown-menu", "size": "medium", "tags": ["react", "accessible", "primitives"] },
+    { "name": "Ark UI", "description": "Headless UI library with 45+ components for React, Vue, Solid", "url": "https://ark-ui.com", "category": "ui-components", "install": "npm install @ark-ui/react", "size": "medium", "tags": ["react", "vue", "solid", "headless"] },
+    { "name": "Park UI", "description": "Beautifully designed components built with Ark UI and Panda CSS", "url": "https://park-ui.com", "category": "ui-components", "install": "npm install @park-ui/panda", "size": "medium", "tags": ["react", "panda-css", "components"] },
+    { "name": "Boosted UI", "description": "Orange-accessible components built on Bootstrap 5", "url": "https://boosted.orange.com", "category": "ui-components", "install": "npm install boosted", "size": "large", "tags": ["bootstrap", "accessible", "css"] },
+    { "name": "Mantine", "description": "React components and hooks library with native dark theme support", "url": "https://mantine.dev", "category": "ui-components", "install": "npm install @mantine/core @mantine/hooks", "size": "medium", "tags": ["react", "hooks", "dark-mode"] },
+    { "name": "Primer React", "description": "GitHub's React component library for creating internal tools", "url": "https://primer.style/react", "category": "ui-components", "install": "npm install @primer/react", "size": "medium", "tags": ["react", "github", "components"] }
+  ],
+  "icons": [
+    { "name": "Lucide", "description": "Beautiful & consistent icon toolkit made by the community", "url": "https://lucide.dev", "category": "icons", "install": "npm install lucide-react", "size": "small", "tags": ["react", "icons", "svg"] },
+    { "name": "Phosphor Icons", "description": "Flexible icon family with 6 weights and 9000+ icons", "url": "https://phosphoricons.com", "category": "icons", "install": "npm install phosphor-react", "size": "small", "tags": ["react", "icons", "svg"] },
+    { "name": "Heroicons", "description": "Beautiful hand-crafted SVG icons by the makers of Tailwind CSS", "url": "https://heroicons.com", "category": "icons", "install": "npm install @heroicons/react", "size": "small", "tags": ["react", "icons", "tailwind"] },
+    { "name": "Radix Icons", "description": "A crisp set of 15x15 icons designed by the Modulz team", "url": "https://radix-ui.com/icons", "category": "icons", "install": "npm install @radix-ui/react-icons", "size": "small", "tags": ["react", "icons", "radix"] },
+    { "name": "Tabler Icons", "description": "4980+ free MIT-licensed SVG icons", "url": "https://tabler-icons.io", "category": "icons", "install": "npm install @tabler/icons-react", "size": "small", "tags": ["react", "icons", "svg"] },
+    { "name": "React Icons", "description": "Include popular icons in your React projects easily", "url": "https://react-icons.github.io/react-icons", "category": "icons", "install": "npm install react-icons", "size": "medium", "tags": ["react", "icons", "collection"] }
+  ],
+  "fonts": [
+    { "name": "Inter Font", "description": "The perfect free font for UI design — highly legible", "url": "https://rsms.me/inter", "category": "fonts", "install": "npm install @fontsource/inter", "size": "small", "tags": ["font", "ui", "sans-serif"] },
+    { "name": "Geist Font", "description": "Vercel's new typeface — clean, modern, geometric sans-serif", "url": "https://vercel.com/font", "category": "fonts", "install": "npm install geist", "size": "small", "tags": ["font", "vercel", "sans-serif"] },
+    { "name": "Nunito Font", "description": "A playful rounded sans-serif typeface", "url": "https://fonts.google.com/specimen/Nunito", "category": "fonts", "install": "npm install @fontsource/nunito", "size": "small", "tags": ["font", "playful", "rounded"] },
+    { "name": "JetBrains Mono", "description": "A typeface for developers with ligatures and coding symbols", "url": "https://www.jetbrains.com/lp/mono", "category": "fonts", "install": "npm install @fontsource/jetbrains-mono", "size": "small", "tags": ["font", "monospace", "coding"] },
+    { "name": "Poppins", "description": "Geometric sans-serif with excellent readability", "url": "https://fonts.google.com/specimen/Poppins", "category": "fonts", "install": "npm install @fontsource/poppins", "size": "small", "tags": ["font", "geometric", "sans-serif"] },
+    { "name": "DM Sans", "description": "Low-contrast geometric sans-serif for body text", "url": "https://fonts.google.com/specimen/DM+Sans", "category": "fonts", "install": "npm install @fontsource/dm-sans", "size": "small", "tags": ["font", "body", "sans-serif"] },
+    { "name": "Plus Jakarta Sans", "description": "Modern geometric sans-serif with a warm personality", "url": "https://fonts.google.com/specimen/Plus+Jakarta+Sans", "category": "fonts", "install": "npm install @fontsource/plus-jakarta-sans", "size": "small", "tags": ["font", "modern", "sans-serif"] },
+    { "name": "Cal Sans", "description": "Geometric sans-serif display font for headings", "url": "https://github.com/calcom/font", "category": "fonts", "install": "npm install @calcom/font", "size": "small", "tags": ["font", "display", "headings"] }
+  ],
+  "colors": [
+    { "name": "Tailwind Colors", "description": "Beautiful, meticulously designed color palette included with Tailwind", "url": "https://tailwindcss.com/docs/customizing-colors", "category": "colors", "install": "", "size": "small", "tags": ["colors", "tailwind", "palette"] },
+    { "name": "Radix Colors", "description": "A gorgeous, accessible color system with dark mode support", "url": "https://radix-ui.com/colors", "category": "colors", "install": "npm install @radix-ui/colors", "size": "small", "tags": ["colors", "accessible", "dark-mode"] },
+    { "name": "Open Color", "description": "An open-source color scheme optimized for UI", "url": "https://yeun.github.io/open-color", "category": "colors", "install": "npm install open-color", "size": "small", "tags": ["colors", "ui", "open-source"] },
+    { "name": "Catppuccin", "description": "Soothing pastel color palette for the design-inclined", "url": "https://catppuccin.com", "category": "colors", "install": "npm install @catppuccin/palette", "size": "small", "tags": ["colors", "pastel", "palette"] },
+    { "name": "Flat UI Colors", "description": "280 handpicked colors for your next project", "url": "https://flatuicolors.com", "category": "colors", "install": "", "size": "small", "tags": ["colors", "ui", "flat"] }
+  ],
+  "animations": [
+    { "name": "Framer Motion", "description": "A production-ready motion library for React", "url": "https://motion.dev", "category": "animations", "install": "npm install motion", "size": "medium", "tags": ["react", "animation", "gestures"] },
+    { "name": "GSAP", "description": "Professional-grade JavaScript animation for the modern web", "url": "https://gsap.com", "category": "animations", "install": "npm install gsap", "size": "medium", "tags": ["animation", "timeline", "scroll"] },
+    { "name": "AOS", "description": "Animate On Scroll library — trigger animations as elements scroll into view", "url": "https://michalsnik.github.io/aos", "category": "animations", "install": "npm install aos", "size": "small", "tags": ["animation", "scroll", "css"] },
+    { "name": "AutoAnimate", "description": "Add motion to your apps with a single line of code", "url": "https://auto-animate.formkit.com", "category": "animations", "install": "npm install @formkit/auto-animate", "size": "small", "tags": ["animation", "layout", "react"] },
+    { "name": "Tailwind CSS Animate", "description": "Tailwind CSS plugin for animation utilities", "url": "https://github.com/jamiebuilds/tailwindcss-animate", "category": "animations", "install": "npm install tailwindcss-animate", "size": "small", "tags": ["tailwind", "animation", "plugin"] },
+    { "name": "UseAnimations", "description": "Animated icon library using Lottie animations", "url": "https://useanimations.com", "category": "animations", "install": "npm install @useanimations/react", "size": "small", "tags": ["animation", "icons", "lottie"] }
+  ],
+  "3d": [
+    { "name": "Three.js", "description": "The most popular 3D JavaScript library for the web", "url": "https://threejs.org", "category": "3d", "install": "npm install three", "size": "large", "tags": ["3d", "webgl", "threejs"] },
+    { "name": "React Three Fiber", "description": "A React renderer for Three.js", "url": "https://r3f.docs.pmnd.rs", "category": "3d", "install": "npm install @react-three/fiber @react-three/drei", "size": "large", "tags": ["react", "3d", "threejs"] },
+    { "name": "GSAP ScrollTrigger", "description": "Create JavaScript scroll-based animations", "url": "https://gsap.com/docs/v3/Plugins/ScrollTrigger", "category": "3d", "install": "npm install gsap", "size": "medium", "tags": ["scroll", "animation", "parallax"] },
+    { "name": "Lenis", "description": "Smooth scroll library for modern web experiences", "url": "https://lenis.studiofreight.com", "category": "3d", "install": "npm install lenis", "size": "small", "tags": ["scroll", "smooth", "animation"] },
+    { "name": "Particles.js", "description": "A lightweight JavaScript library for creating particles", "url": "https://vincentgarreau.com/particles.js", "category": "3d", "install": "npm install particles.js", "size": "small", "tags": ["particles", "background", "effect"] },
+    { "name": "tsParticles", "description": "A modern TypeScript rewrite of particles.js", "url": "https://particles.js.org", "category": "3d", "install": "npm install @tsparticles/react", "size": "medium", "tags": ["particles", "typescript", "react"] }
+  ],
+  "charts": [
+    { "name": "Recharts", "description": "A composable charting library built on React components", "url": "https://recharts.org", "category": "charts", "install": "npm install recharts", "size": "medium", "tags": ["react", "charts", "svg"] },
+    { "name": "Chart.js", "description": "Simple yet flexible JavaScript charting for designers & developers", "url": "https://chartjs.org", "category": "charts", "install": "npm install chart.js react-chartjs-2", "size": "medium", "tags": ["charts", "canvas", "responsive"] },
+    { "name": "D3.js", "description": "The most powerful data visualization library for the web", "url": "https://d3js.org", "category": "charts", "install": "npm install d3", "size": "large", "tags": ["charts", "visualization", "svg"] },
+    { "name": "Nivo", "description": "Rich set of dataviz components built on top of D3 and React", "url": "https://nivo.rocks", "category": "charts", "install": "npm install @nivo/core @nivo/bar", "size": "medium", "tags": ["react", "charts", "d3"] },
+    { "name": "Visx", "description": "A collection of expressive, low-level visualization primitives for React", "url": "https://airbnb.io/visx", "category": "charts", "install": "npm install @visx/visx", "size": "medium", "tags": ["react", "charts", "airbnb"] },
+    { "name": "ApexCharts", "description": "Modern & interactive open-source charting library", "url": "https://apexcharts.com", "category": "charts", "install": "npm install apexcharts react-apexcharts", "size": "medium", "tags": ["charts", "interactive", "responsive"] },
+    { "name": "ECharts", "description": "A powerful, interactive charting library by Baidu", "url": "https://echarts.apache.org", "category": "charts", "install": "npm install echarts echarts-for-react", "size": "large", "tags": ["charts", "interactive", "baidu"] }
+  ],
+  "forms": [
+    { "name": "React Hook Form", "description": "Performant, flexible and extensible forms with easy-to-use validation", "url": "https://react-hook-form.com", "category": "forms", "install": "npm install react-hook-form @hookform/resolvers", "size": "small", "tags": ["react", "forms", "validation"] },
+    { "name": "Zod", "description": "TypeScript-first schema validation with static type inference", "url": "https://zod.dev", "category": "forms", "install": "npm install zod", "size": "small", "tags": ["validation", "typescript", "schema"] },
+    { "name": "Formik", "description": "Build forms in React without the tears", "url": "https://formik.org", "category": "forms", "install": "npm install formik", "size": "medium", "tags": ["react", "forms", "validation"] },
+    { "name": "TanStack Form", "description": "Headless, performant form state management", "url": "https://tanstack.com/form", "category": "forms", "install": "npm install @tanstack/react-form", "size": "small", "tags": ["react", "forms", "headless"] },
+    { "name": "React Final Form", "description": "High performance subscription-based form state management for React", "url": "https://final-form.org/react", "category": "forms", "install": "npm install react-final-form", "size": "small", "tags": ["react", "forms", "subscription"] },
+    { "name": "Conform", "description": "Progressive form enhancement for React", "url": "https://conform.guide", "category": "forms", "install": "npm install @conform-to/react @conform-to/zod", "size": "small", "tags": ["react", "forms", "zod"] }
+  ],
+  "images": [
+    { "name": "unDraw", "description": "Open-source illustrations for any idea", "url": "https://undraw.co", "category": "images", "install": "", "size": "small", "tags": ["illustrations", "svg", "open-source"] },
+    { "name": "LottieFiles", "description": "Free lightweight animations for web and mobile", "url": "https://lottiefiles.com", "category": "images", "install": "npm install lottie-react", "size": "medium", "tags": ["animations", "svg", "motion"] },
+    { "name": "Humaaans", "description": "Mix-and-match illustrations of people", "url": "https://humaaans.com", "category": "images", "install": "", "size": "small", "tags": ["illustrations", "people", "svg"] },
+    { "name": "Blush", "description": "Create, mix and customize illustrations", "url": "https://blush.design", "category": "images", "install": "", "size": "small", "tags": ["illustrations", "customizable", "svg"] },
+    { "name": "Pexels", "description": "Free stock photos and videos shared by talented creators", "url": "https://pexels.com", "category": "images", "install": "", "size": "large", "tags": ["photos", "stock", "free"] },
+    { "name": "Unsplash", "description": "The internet's source of freely usable images", "url": "https://unsplash.com", "category": "images", "install": "", "size": "large", "tags": ["photos", "stock", "free"] },
+    { "name": "SVG Repo", "description": "Free SVG vectors and icons", "url": "https://svgrepo.com", "category": "images", "install": "", "size": "small", "tags": ["svg", "vectors", "icons"] }
+  ]
+}
