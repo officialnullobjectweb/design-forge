@@ -23,6 +23,11 @@
 # misc
 .DS_Store
 *.pem
+*.tgz
+
+# runtime
+.server.log
+.server.pid
 
 # debug
 npm-debug.log*

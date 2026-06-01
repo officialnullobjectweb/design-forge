@@ -11,7 +11,7 @@ No more digging through GitHub repos or blog posts to find the right library. An
 ## Installation
 
 ```bash
-npm install -g @design-forge/cli
+npm install -g design-forge-cli
 ```
 
 ## Usage
@@ -39,7 +39,7 @@ After answering, DesignForge will:
 ### Programmatic API
 
 ```js
-const forge = require('@design-forge/cli');
+const forge = require('design-forge-cli');
 
 // Generate a resource plan
 const plan = forge.generatePlan(
