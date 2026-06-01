@@ -1,132 +1,156 @@
 'use client';
 
-import { ArrowDown, GitFork, Terminal, ExternalLink, Wand2, Palette, BookOpen, LayoutDashboard, Sparkles, Search } from 'lucide-react';
-import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { ArrowDown, Wand2, Terminal, Package, Zap, Sparkles } from 'lucide-react';
+import LogoCloud from './LogoCloud';
 
 const stats = [
-  { number: '80+', label: 'Free Resources' },
-  { number: '14', label: 'Categories' },
-  { number: '20+', label: 'Free Templates' },
-  { number: '30+', label: 'Design Skills' },
-  { number: 'Zero', label: 'Paid Tools' },
+  { number: '100+', label: 'Free Packages' },
   { number: '1', label: 'Command to Start' },
+  { number: 'Zero', label: 'Bloat' },
+  { number: '5min', label: 'To First Build' },
 ];
 
-const featuredCats = [
-  { label: 'UI Components', desc: 'shadcn, MagicUI, Radix, DaisyUI...', icon: LayoutDashboard, color: 'from-violet-600 to-indigo-600' },
-  { label: 'Fonts & Colors', desc: 'Google Fonts, Radix Colors, Coolors...', icon: Palette, color: 'from-pink-500 to-rose-600' },
-  { label: 'Animations & 3D', desc: 'Framer Motion, Three.js, GSAP...', icon: Sparkles, color: 'from-orange-500 to-rose-600' },
-  { label: 'Skills & Patterns', desc: 'Refactoring UI, Laws of UX...', icon: BookOpen, color: 'from-emerald-500 to-teal-600' },
-  { label: 'Pre-built Templates', desc: 'HTML5 UP, Cruip, SB Admin...', icon: LayoutDashboard, color: 'from-blue-600 to-cyan-500' },
-  { label: 'Project Wizard', desc: 'Smart setup for your project', icon: Wand2, color: 'from-purple-500 to-fuchsia-600' },
-];
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+  },
+};
 
 export default function HeroSection() {
-  const [query, setQuery] = useState('');
-
   return (
-    <section className="relative overflow-hidden px-4 pt-32 pb-20 sm:px-6 sm:pt-40 lg:px-8">
+    <section className="relative overflow-hidden px-4 pt-28 pb-16 sm:px-6 sm:pt-36 lg:px-6">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-[-20%] left-[-10%] h-[50%] w-[60%] rounded-full bg-gradient-to-br from-brand-200/40 via-brand-400/20 to-transparent blur-3xl" />
-        <div className="absolute bottom-[-10%] right-[-10%] h-[40%] w-[50%] rounded-full bg-gradient-to-bl from-emerald-200/30 via-teal-300/20 to-transparent blur-3xl" />
+        <motion.div
+          className="absolute top-[-25%] left-[-5%] h-[60%] w-[55%] rounded-full bg-gradient-to-br from-violet-300/30 via-violet-400/15 to-transparent blur-3xl"
+          animate={{ rotate: [0, 5, 0], scale: [1, 1.05, 1] }}
+          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="absolute bottom-[-15%] right-[-5%] h-[50%] w-[50%] rounded-full bg-gradient-to-bl from-emerald-200/25 via-teal-300/15 to-transparent blur-3xl"
+          animate={{ rotate: [0, -5, 0], scale: [1, 1.08, 1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="absolute top-[40%] right-[20%] h-[30%] w-[25%] rounded-full bg-gradient-to-r from-amber-200/15 via-orange-300/10 to-transparent blur-3xl"
+          animate={{ rotate: [0, 8, 0], scale: [1, 1.12, 1] }}
+          transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-50 via-white to-zinc-50/50" />
       </div>
 
-      <div className="mx-auto max-w-4xl text-center">
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-200/60 bg-brand-50/80 px-4 py-1.5 text-xs font-medium text-brand-700">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-400 opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-500" />
-          </span>
-          80+ Resources · 14 Categories · 100% FREE
-        </div>
-
-        <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-zinc-900 sm:text-5xl md:text-6xl lg:text-7xl">
-          Everything You Need to{' '}
-          <span className="gradient-text bg-gradient-to-r from-brand-600 via-brand-500 to-emerald-500">
-            Build Beautiful UI
-          </span>
-          <br />
-          <span className="text-2xl sm:text-3xl md:text-4xl">100% Free. Zero Paid Tools.</span>
-        </h1>
-
-        <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-zinc-500 sm:text-lg sm:leading-8">
-          Components · Fonts · Colors · Icons · Animations · Charts · Templates · Design Skills · 3D · Gradients
-          <br />
-          <span className="text-sm">No more hunting the web. Everything is here.</span>
-        </p>
-
-        <div className="mt-8 mx-auto max-w-lg">
-          <div className="relative">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-400" />
-            <input
-              type="text"
-              placeholder="Search resources... (e.g., buttons, fonts, charts, animations)"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              className="w-full rounded-xl border border-zinc-200 bg-white py-3 pl-10 pr-4 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-300 shadow-sm"
-            />
+      <motion.div
+        className="mx-auto max-w-4xl"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div variants={itemVariants} className="mx-auto max-w-2xl text-center">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-violet-200/60 bg-violet-50/80 px-4 py-1.5 text-xs font-medium text-violet-700 backdrop-blur-sm">
+            <span className="relative flex h-2 w-2">
+              <motion.span
+                className="absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"
+                animate={{ scale: [1, 1.8], opacity: [0.75, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-violet-500" />
+            </span>
+            AI Agent Toolkit &middot; Zero Bloat &middot; 100% Free
           </div>
-        </div>
+        </motion.div>
 
-        <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-          <a
-            href="#resources"
-            className="inline-flex h-11 items-center gap-2 rounded-xl bg-zinc-900 px-6 text-sm font-medium text-white shadow-lg shadow-zinc-900/20 transition-all hover:bg-zinc-800 hover:shadow-xl active:scale-[0.98]"
-          >
-            Browse All Resources
-            <ArrowDown className="h-3.5 w-3.5" />
-          </a>
-          <a
+        <motion.div variants={itemVariants} className="text-center">
+          <h1 className="text-4xl font-bold leading-[1.08] tracking-tight text-zinc-900 sm:text-5xl md:text-6xl lg:text-7xl">
+            Tell Your AI Agent{' '}
+            <span className="bg-gradient-to-r from-violet-600 via-violet-500 to-emerald-500 bg-clip-text text-transparent">
+              What to Build
+            </span>
+            <br />
+            <span className="text-2xl sm:text-3xl md:text-4xl">We Install Only What You Need.</span>
+          </h1>
+        </motion.div>
+
+        <motion.div variants={itemVariants} className="mx-auto mt-6 max-w-2xl text-center">
+          <p className="text-base leading-7 text-zinc-500 sm:text-lg sm:leading-8">
+            A single NPM command. Your AI agent describes the output — DesignForge picks the exact
+            packages, nothing more. No bloat, no conflicts, no unused dependencies.
+          </p>
+          <p className="mt-1 text-sm text-zinc-400">
+            Change your mind? We clean up the old packages too.
+          </p>
+        </motion.div>
+
+        <motion.div variants={itemVariants} className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          <motion.a
             href="/wizard"
-            className="inline-flex h-11 items-center gap-2 rounded-xl border border-zinc-200 bg-white px-6 text-sm font-medium text-zinc-700 shadow-sm transition-all hover:bg-zinc-50 hover:shadow-md active:scale-[0.98]"
+            className="inline-flex h-12 items-center gap-2 rounded-xl bg-zinc-900 px-7 text-sm font-medium text-white shadow-lg shadow-zinc-900/20 transition-all hover:bg-zinc-800 hover:shadow-xl active:scale-[0.98]"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
             <Wand2 className="h-4 w-4" />
-            Project Wizard
-          </a>
-          <a
-            href="/templates"
-            className="inline-flex h-11 items-center gap-2 rounded-xl border border-zinc-200 bg-white px-6 text-sm font-medium text-zinc-700 shadow-sm transition-all hover:bg-zinc-50 hover:shadow-md active:scale-[0.98]"
+            Try the Wizard
+            <ArrowDown className="h-3.5 w-3.5" />
+          </motion.a>
+          <motion.a
+            href="#resources"
+            className="inline-flex h-12 items-center gap-2 rounded-xl border border-zinc-200 bg-white px-7 text-sm font-medium text-zinc-700 shadow-sm transition-all hover:bg-zinc-50 hover:shadow-md"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
-            <LayoutDashboard className="h-4 w-4" />
-            Templates
-          </a>
-          <a
-            href="/skills"
-            className="inline-flex h-11 items-center gap-2 rounded-xl border border-zinc-200 bg-white px-6 text-sm font-medium text-zinc-700 shadow-sm transition-all hover:bg-zinc-50 hover:shadow-md active:scale-[0.98]"
+            <Package className="h-4 w-4" />
+            Browse Packages
+          </motion.a>
+          <motion.a
+            href="https://www.npmjs.com/package/design-forge-cli"
+            target="_blank"
+            className="inline-flex h-12 items-center gap-2 rounded-xl border border-zinc-200 bg-white px-7 text-sm font-medium text-zinc-700 shadow-sm transition-all hover:bg-zinc-50 hover:shadow-md"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
-            <BookOpen className="h-4 w-4" />
-            Skills
-          </a>
-        </div>
+            <Terminal className="h-4 w-4" />
+            npx design-forge-cli
+          </motion.a>
+        </motion.div>
 
-        <div className="mt-16 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+        <motion.div variants={itemVariants} className="mt-16 grid grid-cols-2 gap-3 sm:grid-cols-4">
           {stats.map((stat) => (
-            <div
+            <motion.div
               key={stat.label}
               className="rounded-xl border border-zinc-100 bg-white/60 px-3 py-4 text-center backdrop-blur-sm"
+              whileHover={{ y: -2, boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}
             >
               <div className="text-xl font-bold text-zinc-900 sm:text-2xl">{stat.number}</div>
               <div className="mt-0.5 text-[10px] font-medium text-zinc-500">{stat.label}</div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
+      </motion.div>
 
-        <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-3">
-          {featuredCats.map((cat) => (
-            <a
-              key={cat.label}
-              href={cat.label === 'Pre-built Templates' ? '/templates' : cat.label === 'Skills & Patterns' ? '/skills' : cat.label === 'Project Wizard' ? '/wizard' : '/#' + cat.label.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}
-              className="group rounded-xl border border-zinc-100 bg-white p-4 text-left transition-all hover:shadow-md hover:border-zinc-200"
-            >
-              <div className={`inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br ${cat.color} text-white shadow-sm`}>
-                <cat.icon className="h-4 w-4" />
-              </div>
-              <p className="mt-2 text-xs font-semibold text-zinc-900 group-hover:text-brand-600 transition-colors">{cat.label}</p>
-              <p className="text-[10px] text-zinc-400 mt-0.5">{cat.desc}</p>
-            </a>
-          ))}
+      <motion.div
+        className="mx-auto mt-16 max-w-5xl"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-100px' }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
+        <div className="mb-6 text-center">
+          <div className="inline-flex items-center gap-2 rounded-full bg-zinc-50 px-4 py-1.5 text-xs font-medium text-zinc-500 ring-1 ring-zinc-200/50">
+            <Sparkles className="h-3 w-3 text-violet-500" />
+            Powered by these tools
+          </div>
         </div>
-      </div>
+        <LogoCloud />
+      </motion.div>
     </section>
   );
 }

@@ -16,6 +16,203 @@ export interface Template {
 
 export const templates: Template[] = [
   // ========================================================================
+  // MODERN PREMIUM TEMPLATES (2025-2026)
+  // ========================================================================
+
+  // --- AstroWind (Astro + Tailwind) ---
+  {
+    id: 'astrowind',
+    name: 'AstroWind',
+    description: 'Most starred Astro theme — a complete marketing site with hero, features, testimonials, pricing, CTAs, and a full blog with MDX support. 97+ Lighthouse score.',
+    url: 'https://github.com/onwidget/astrowind',
+    category: 'landing-page',
+    tech: ['tailwind', 'html', 'css'],
+    difficulty: 'intermediate',
+    includesDesignFile: false,
+    source: 'astro',
+    tags: ['astro', 'tailwind', 'blog', 'marketing', 'saas', 'seo'],
+    isFree: true,
+  },
+  {
+    id: 'astroship',
+    name: 'Astroship',
+    description: 'A clean, minimal Astro + Tailwind CSS landing page for startups and marketing sites. 99/100 Lighthouse. Zero-JS by default.',
+    url: 'https://github.com/surjithctly/astroship',
+    category: 'landing-page',
+    tech: ['tailwind', 'html', 'css'],
+    difficulty: 'intermediate',
+    includesDesignFile: false,
+    source: 'astro',
+    tags: ['astro', 'tailwind', 'startup', 'minimal', 'landing'],
+    isFree: true,
+  },
+
+  // --- HyperUI (Tailwind component library) ---
+  {
+    id: 'hyperui',
+    name: 'HyperUI',
+    description: 'The largest free collection of Tailwind CSS components — 500+ copy-paste snippets. Hero blocks, feature grids, pricing tables, footers. Tailwind v4, dark mode, RTL. 12k GitHub stars.',
+    url: 'https://github.com/markmead/hyperui',
+    category: 'landing-page',
+    tech: ['tailwind', 'html', 'css'],
+    difficulty: 'beginner',
+    includesDesignFile: false,
+    source: 'other',
+    tags: ['tailwind', 'components', 'copy-paste', 'dark-mode', 'rtl'],
+    isFree: true,
+  },
+
+  // --- Flowbite (Tailwind component library) ---
+  {
+    id: 'flowbite-templates',
+    name: 'Flowbite',
+    description: '400+ interactive Tailwind CSS UI components with built-in JS — dropdowns, modals, carousels, datepickers. Official React/Vue/Svelte/Angular adapters.',
+    url: 'https://github.com/themesberg/flowbite',
+    category: 'landing-page',
+    tech: ['tailwind', 'html', 'css'],
+    difficulty: 'beginner',
+    includesDesignFile: false,
+    source: 'other',
+    tags: ['tailwind', 'components', 'interactive', 'js', 'dark-mode'],
+    isFree: true,
+  },
+
+  // --- Preline UI (Tailwind plugin) ---
+  {
+    id: 'preline-ui',
+    name: 'Preline UI',
+    description: '300+ pre-built Tailwind CSS sections as a plugin. Integrates into your build pipeline. Hero sections, pricing, FAQs, footers, and complete landing pages. 6.3k stars.',
+    url: 'https://github.com/htmlstreamofficial/preline',
+    category: 'landing-page',
+    tech: ['tailwind', 'html', 'css'],
+    difficulty: 'beginner',
+    includesDesignFile: false,
+    source: 'other',
+    tags: ['tailwind', 'plugin', 'sections', 'landing', 'dark-mode'],
+    isFree: true,
+  },
+
+  // --- Sailboat UI (Tailwind components, zero JS) ---
+  {
+    id: 'sailboat-ui',
+    name: 'Sailboat UI',
+    description: '150+ clean Tailwind CSS components with zero JavaScript dependencies. Pure CSS, pure Tailwind. Organized by marketing, application, ecommerce categories. 1.3k stars.',
+    url: 'https://github.com/sailboatui/sailboatui',
+    category: 'landing-page',
+    tech: ['tailwind', 'html', 'css'],
+    difficulty: 'beginner',
+    includesDesignFile: false,
+    source: 'other',
+    tags: ['tailwind', 'components', 'zero-js', 'minimal', 'responsive'],
+    isFree: true,
+  },
+
+  // --- Meraki UI (Tailwind components, full RTL support) ---
+  {
+    id: 'meraki-ui',
+    name: 'Meraki UI',
+    description: '200+ Tailwind CSS components with full RTL language support essential for Middle Eastern and South Asian markets. Dark mode, responsive grids. 3.5k stars.',
+    url: 'https://github.com/merakiui/merakiui',
+    category: 'landing-page',
+    tech: ['tailwind', 'html', 'css'],
+    difficulty: 'beginner',
+    includesDesignFile: false,
+    source: 'other',
+    tags: ['tailwind', 'components', 'rtl', 'dark-mode', 'responsive'],
+    isFree: true,
+  },
+
+  // --- Landwind (SaaS Landing Page by Flowbite team) ---
+  {
+    id: 'landwind',
+    name: 'Landwind',
+    description: 'A focused single-page SaaS landing page by Themesberg (Flowbite team). Hero, customer logos, feature sections, testimonials, pricing, FAQ, CTA. Clean and conversion-oriented.',
+    url: 'https://github.com/themesberg/landwind',
+    category: 'saas',
+    tech: ['tailwind', 'html', 'css'],
+    difficulty: 'beginner',
+    includesDesignFile: false,
+    source: 'other',
+    tags: ['saas', 'landing', 'tailwind', 'flowbite', 'conversion'],
+    isFree: true,
+  },
+
+  // --- Shadcn Landing Page (Next.js + shadcn/ui) ---
+  {
+    id: 'shadcn-landing-page',
+    name: 'shadcn Landing Page',
+    description: 'A polished React/Next.js landing page built on shadcn/ui with Radix UI primitives. Accessible, dark mode, smooth animations. Hero, features, pricing, FAQ, newsletter.',
+    url: 'https://github.com/ibelick/landing-page',
+    category: 'landing-page',
+    tech: ['react', 'nextjs', 'tailwind'],
+    difficulty: 'intermediate',
+    includesDesignFile: false,
+    source: 'other',
+    tags: ['react', 'nextjs', 'shadcn-ui', 'radix-ui', 'dark-mode', 'accessible'],
+    isFree: true,
+  },
+
+  // --- Page UI (Copy-paste React components) ---
+  {
+    id: 'page-ui',
+    name: 'Page UI',
+    description: 'Copy-paste landing page components for React and Next.js with Tailwind CSS. Multiple hero variants, feature sections, pricing, testimonials. Dark mode + responsive.',
+    url: 'https://github.com/pagemark/page-ui',
+    category: 'landing-page',
+    tech: ['react', 'nextjs', 'tailwind'],
+    difficulty: 'intermediate',
+    includesDesignFile: false,
+    source: 'other',
+    tags: ['react', 'nextjs', 'tailwind', 'components', 'hero', 'pricing'],
+    isFree: true,
+  },
+
+  // --- Orbitly SaaS Landing Page (Next.js + Framer Motion) ---
+  {
+    id: 'orbitly-landing',
+    name: 'Orbitly',
+    description: 'A premium single-page SaaS landing page by Antimatter AI. Built with React 19, Tailwind CSS 4, Framer Motion 12. Animated hero, bento grid, testimonials, pricing. MIT licensed.',
+    url: 'https://github.com/mattantimatter/orbitly-template',
+    category: 'saas',
+    tech: ['react', 'nextjs', 'tailwind'],
+    difficulty: 'intermediate',
+    includesDesignFile: false,
+    source: 'other',
+    tags: ['saas', 'react', 'framer-motion', 'bento-grid', 'glassmorphism', 'animated'],
+    isFree: true,
+  },
+
+  // --- Notus Next.js (Full UI Kit) ---
+  {
+    id: 'notus-nextjs',
+    name: 'Notus Next.js',
+    description: 'A complete Next.js UI kit — not just a landing page. Includes admin dashboard, auth pages, 100+ components, plus marketing landing page. Built on Tailwind CSS.',
+    url: 'https://github.com/creativetimofficial/notus-nextjs',
+    category: 'landing-page',
+    tech: ['react', 'nextjs', 'tailwind'],
+    difficulty: 'advanced',
+    includesDesignFile: false,
+    source: 'other',
+    tags: ['react', 'nextjs', 'tailwind', 'ui-kit', 'dashboard', 'components'],
+    isFree: true,
+  },
+
+  // --- ModernSaaS Landing Page (Astro + glassmorphism) ---
+  {
+    id: 'modern-saas-astro',
+    name: 'ModernSaaS',
+    description: 'A production-ready SaaS landing page with 2026 design trends — glassmorphism, bento grids, mesh gradients. Astro + React + Tailwind CSS v4. 99+ Lighthouse.',
+    url: 'https://github.com/MasuRii/ModernSaaS-LandingPage-Template',
+    category: 'saas',
+    tech: ['react', 'tailwind', 'html', 'css'],
+    difficulty: 'intermediate',
+    includesDesignFile: false,
+    source: 'astro',
+    tags: ['astro', 'react', 'glassmorphism', 'bento-grid', 'saas', 'dark-mode'],
+    isFree: true,
+  },
+
+  // ========================================================================
   // HTML5 UP (html5up.net) — CCA 3.0 License — 44 free templates
   // All: tech: ['html', 'css', 'js'], difficulty: 'beginner', includesDesignFile: false, isFree: true
   // ========================================================================

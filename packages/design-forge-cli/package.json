@@ -1,7 +1,7 @@
 {
   "name": "design-forge-cli",
-  "version": "1.0.0",
-  "description": "One-command setup for your design project. Install only what you need from 100+ free design resources.",
+  "version": "2.1.0",
+  "description": "Build complete, production-ready frontends from idea to website. Interactive CLI wizard with iPhone preview.",
   "bin": {
     "design-forge": "bin/cli.js",
     "df": "bin/cli.js"
@@ -9,7 +9,9 @@
   "main": "index.js",
   "files": [
     "bin/",
+    "src/",
     "index.js",
+    "agent-skills/",
     "consistency/",
     "resources/"
   ],
@@ -21,17 +23,31 @@
     "cli",
     "tailwind",
     "shadcn-ui",
-    "resources"
+    "nextjs",
+    "website-generator",
+    "frontend",
+    "landing-page",
+    "saas",
+    "dashboard",
+    "iphone-preview"
   ],
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/officialnullobjectweb/design-forge.git"
   },
+  "bugs": {
+    "url": "https://github.com/officialnullobjectweb/design-forge/issues"
+  },
+  "homepage": "https://design-forge.vercel.app",
   "publishConfig": {
     "access": "public"
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.9.1",
+    "picocolors": "^1.1.1"
   }
 }

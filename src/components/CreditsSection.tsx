@@ -1,44 +1,58 @@
 'use client';
 
-import { Heart, ExternalLink } from 'lucide-react';
-import { resources } from '@/data/resources';
+import { ExternalLink } from 'lucide-react';
+
+const builtWith = [
+  { name: 'Next.js', slug: 'nextdotjs', color: '000000', url: 'https://nextjs.org', desc: 'React framework' },
+  { name: 'Framer Motion', slug: 'framer', color: '0055FF', url: 'https://motion.dev', desc: 'Animation library' },
+  { name: 'Tailwind CSS', slug: 'tailwindcss', color: '06B6D4', url: 'https://tailwindcss.com', desc: 'Utility-first CSS' },
+  { name: 'shadcn/ui', slug: 'shadcnui', color: '000000', url: 'https://ui.shadcn.com', desc: 'UI components' },
+  { name: 'Geist Font', slug: 'geist', color: '000000', url: 'https://vercel.com/font', desc: 'Typography' },
+  { name: 'Lucide', slug: 'lucide', color: 'F56565', url: 'https://lucide.dev', desc: 'Icons' },
+  { name: 'Simple Icons', slug: 'simpleicons', color: '111111', url: 'https://simpleicons.org', desc: 'Brand icons' },
+  { name: 'Radix UI', slug: 'radixui', color: 'FF5A5F', url: 'https://radix-ui.com', desc: 'Headless primitives' },
+];
 
 export default function CreditsSection() {
   return (
-    <section id="credits" className="scroll-mt-24 px-4 py-24 sm:px-6 lg:px-8">
+    <section id="credits" className="scroll-mt-24 px-4 py-24 sm:px-6 lg:px-6">
       <div className="mx-auto max-w-4xl text-center">
         <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-rose-50 px-3.5 py-1 text-xs font-medium text-rose-700 ring-1 ring-rose-200/50">
-          <Heart className="h-3 w-3" />
-          Giving Credit Where It&apos;s Due
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+          </svg>
+          Built With
         </div>
 
         <h2 className="text-2xl font-bold text-zinc-900 sm:text-3xl">
-          Built on the Shoulders of Giants
+          Powered by Open Source
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-sm text-zinc-500">
-          DesignForge doesn&apos;t host or relicense any of these resources. We simply
-          curate and point to the best free tools the community has built. Every
-          resource below is offered for free by its creators — please respect their
-          licenses and consider supporting them.
+          DesignForge is built entirely on free and open-source tools. 
+          Each one made this possible — please support them.
         </p>
 
-        <div className="mt-10 grid gap-3 sm:grid-cols-2">
-          {resources.map((r) => (
+        <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {builtWith.map((tool) => (
             <a
-              key={r.id}
-              href={r.url}
+              key={tool.slug}
+              href={tool.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-3 rounded-xl border border-zinc-100 bg-white px-4 py-3 text-left transition-all hover:border-zinc-200 hover:shadow-sm"
+              className="group flex items-center gap-3 rounded-xl border border-zinc-100 bg-white px-4 py-3.5 text-left transition-all hover:border-zinc-200 hover:shadow-sm hover:-translate-y-0.5"
             >
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-zinc-50 text-[10px] font-bold text-zinc-700 ring-1 ring-zinc-200/50">
-                {r.name.slice(0, 2)}
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-zinc-50 ring-1 ring-zinc-200/50">
+                <img
+                  src={`https://cdn.simpleicons.org/${tool.slug}/${tool.color}`}
+                  alt={tool.name}
+                  className="h-5 w-5"
+                />
               </div>
               <div className="min-w-0 flex-1">
                 <p className="text-sm font-medium text-zinc-900 group-hover:text-brand-600 transition-colors">
-                  {r.name}
+                  {tool.name}
                 </p>
-                <p className="truncate text-xs text-zinc-400">{r.url.replace('https://', '')}</p>
+                <p className="truncate text-xs text-zinc-400">{tool.desc}</p>
               </div>
               <ExternalLink className="h-3.5 w-3.5 shrink-0 text-zinc-300 group-hover:text-zinc-500 transition-colors" />
             </a>
@@ -47,12 +61,10 @@ export default function CreditsSection() {
 
         <div className="mt-10 rounded-xl border border-zinc-100 bg-zinc-50/50 px-6 py-5">
           <p className="text-xs leading-5 text-zinc-500">
-            <strong className="text-zinc-700">Legal Notice:</strong> DesignForge is a curated directory.
-            We do not host, distribute, or modify any of the listed tools. All trademarks,
-            logos, and brand names belong to their respective owners. Each resource is used
-            under its respective license (MIT, Apache 2.0, CC0, or similar open-source/free
-            license). If you are a creator of a listed resource and wish to have it removed,
-            please open an issue on our GitHub repository.
+            <strong className="text-zinc-700">Legal Notice:</strong> DesignForge does not host, distribute, or modify any
+            of the listed tools. All trademarks, logos, and brand names belong to their respective owners.
+            Each resource is used under its respective open-source license. If you are a creator of a listed
+            resource and wish to have it removed, please open an issue on our GitHub repository.
           </p>
         </div>
       </div>

@@ -13,26 +13,75 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DesignForge — Your Free Design Command Center",
+  title: "DesignForge — AI-Powered Frontend Builder. Zero Bloat. Instant Setup.",
   description:
-    "80+ free UI/UX design resources aggregated in one place. Components, fonts, colors, animations, templates, design skills, and more. One command, zero cost, premium results.",
+    "Tell your AI agent what you want to build. DesignForge installs only the packages you need — nothing extra. Premium frontends in 5 minutes from 100% free resources.",
   keywords: [
-    "free ui components", "tailwind css", "shadcn ui", "framer motion",
-    "google fonts", "free icons", "design resources", "ui library",
-    "open source design", "free templates", "design skills",
+    "frontend builder", "ai frontend agent", "npm frontend package",
+    "react component installer", "tailwind css", "framer motion",
+    "shadcn ui", "google fonts", "free icons", "design resources",
+    "ui builder", "vibe coding", "ai agent toolkit", "design system cli",
+    "landing page builder", "dashboard template", "zero bloat frontend",
+    "free ui components", "open source design",
   ],
   openGraph: {
-    title: "DesignForge — Free Design Command Center",
-    description: "80+ free design resources, templates, and skills in one place.",
+    title: "DesignForge — AI-Powered Frontend Builder",
+    description: "Tell your AI agent what to build. Installs only what you need. Premium frontends in 5 minutes.",
     type: "website",
+    siteName: "DesignForge",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DesignForge — AI-Powered Frontend Builder",
+    description: "Tell your AI agent what to build. Installs only what you need. Premium frontends in 5 minutes.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  icons: {
+    icon: '/favicon.ico',
   },
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'DesignForge',
+    applicationCategory: 'DeveloperApplication',
+    operatingSystem: 'macOS, Windows, Linux',
+    description: 'AI-powered frontend builder that installs only the packages you need via a single NPM command. No bloat, no conflicts, premium results.',
+    url: 'https://design-forge.vercel.app',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    author: {
+      '@type': 'Organization',
+      name: 'DesignForge',
+    },
+  };
+
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-white text-zinc-900 font-sans">
         {children}
       </body>

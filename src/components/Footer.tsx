@@ -4,8 +4,8 @@ import { GitFork, Heart, Sparkles } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-zinc-100 bg-zinc-50/50 px-4 py-12 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+    <footer className="border-t border-zinc-100 bg-zinc-50/50 px-4 py-12 sm:px-6 lg:px-6">
+      <div className="mx-auto max-w-6xl">
         <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
           <div className="flex items-center gap-2.5">
             <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-brand-500 to-brand-700">

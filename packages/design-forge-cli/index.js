@@ -144,9 +144,12 @@ function applyConsistency(dir) {
   }
 }
 
+const { PreviewGenerator } = require('./src/preview/generator');
+
 module.exports = {
   generatePlan,
   analyzeProject,
   applyConsistency,
+  PreviewGenerator,
   resources: catalog,
 };

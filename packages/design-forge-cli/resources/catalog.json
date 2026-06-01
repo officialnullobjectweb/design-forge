@@ -1,5 +1,6 @@
 {
   "ui-components": [
+    { "name": "Sky UI", "description": "Beautiful, open-source Tailwind CSS components. Copy-paste, free as the sky.", "url": "https://library.sky-ui.com", "category": "ui-components", "install": "", "size": "tiny", "tags": ["tailwind", "components", "free"] },
     { "name": "shadcn/ui", "description": "Beautifully designed components that you can copy-paste into your apps", "url": "https://ui.shadcn.com", "category": "ui-components", "install": "npx shadcn@latest init -d", "size": "small", "tags": ["react", "tailwind", "radix"] },
     { "name": "daisyUI", "description": "The most popular component library for Tailwind CSS", "url": "https://daisyui.com", "category": "ui-components", "install": "npm i -D daisyui@latest", "size": "small", "tags": ["tailwind", "css", "components"] },
     { "name": "Magic UI", "description": "50+ animated and interactive React components built with Tailwind CSS", "url": "https://magicui.design", "category": "ui-components", "install": "npm install magicui", "size": "small", "tags": ["react", "tailwind", "animations"] },

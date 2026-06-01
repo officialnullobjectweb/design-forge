@@ -1,160 +1,165 @@
 # DesignForge CLI
 
-> **One-command setup for your design project. Install only what you need from 100+ free design resources.**
+> **Build complete, production-ready frontends from idea to website. One command, interactive wizard, iPhone preview.**
 
-DesignForge is an interactive CLI wizard that helps you discover, select, and install the best free design resources for your project — Tailwind components, icon sets, fonts, animations, 3D libraries, charts, form builders, and more.
+DesignForge is a **6-step interactive CLI wizard** that builds a complete Next.js project:
+AI-generated blueprint → design tokens → page routing → section components → installs dependencies → iPhone preview.
 
-No more digging through GitHub repos or blog posts to find the right library. Answer 3 questions and get a curated plan.
+No manual setup. No copy-pasting. Just answer 6 questions and get a buildable, production-ready website.
 
 ---
 
-## Installation
+## Quick Start
 
 ```bash
-npm install -g design-forge-cli
-```
-
-## Usage
-
-### Interactive wizard (recommended)
-
-```bash
-design-forge
+npx design-forge create
 # or
-df
+npx df create
 ```
 
-The CLI will ask you 3 questions:
+The 6-step wizard walks you through:
 
-1. **What are you building?** — `landing-page`, `dashboard`, `ecommerce`, `portfolio`, `blog`, `saas`, `mobile-app`, `web-app`
-2. **What style?** — `modern`, `minimal`, `playful`, `dark`, `glassmorphic`, `brutalist` (multi-select)
-3. **What features?** — `animations`, `3d`, `charts`, `forms`, `auth`, `icons`, `illustrations`, `fonts`, `dark-mode`, `particles`, `email`, `payment` (multi-select)
+| Step | What You Choose |
+|------|----------------|
+| 1. **Project Type** | Landing page, SaaS, Dashboard, E-commerce, Blog, Portfolio, Admin Panel |
+| 2. **Design Style** | Minimal, Modern, Playful, Dark, Bold, Glassmorphic |
+| 3. **Features** | Dark mode, Animations, Contact form, Auth, Blog, Analytics, SEO, i18n |
+| 4. **Sections** | Hero, Features, Pricing, Testimonials, FAQ, CTA, Stats, Team, Contact |
+| 5. **Colors** | 12 curated palettes or custom hex codes |
+| 6. **Free Text** | Describe your project, brand name, design preferences |
 
-After answering, DesignForge will:
+After the wizard, DesignForge:
+- Generates a **complete Next.js project** with Tailwind, Shadcn UI, design tokens
+- Installs all dependencies 
+- Opens an **iPhone preview** in your browser showing your site with its colors, sections, and typography
 
-- Generate a custom resource plan with install commands
-- Apply the design token consistency layer
-- Optionally run the install commands for you
+---
 
-### Programmatic API
+## Commands
+
+| Command | Description |
+|---------|-------------|
+| `design-forge create` | Interactive 6-step wizard (recommended) |
+| `design-forge init` | Quick setup with defaults |
+| `design-forge preview` | Re-open the iPhone preview anytime |
+| `design-forge list` | Browse the resource catalog |
+| `design-forge skills` | Copy AI agent skill files |
+| `design-forge --version` | Show version |
+| `design-forge --help` | Show help |
+
+## Examples
+
+```bash
+# Create a new project in the current directory
+npx design-forge create
+
+# Start the dev server after generation
+cd ./my-project
+npm run dev        # → http://localhost:3000
+npm run build      # Production build
+df preview         # Re-open iPhone preview
+```
+
+---
+
+## What You Get
+
+After running `design-forge create`, you get a complete project:
+
+```
+my-project/
+├── src/
+│   ├── app/                 # Next.js App Router pages
+│   │   ├── page.tsx         # Homepage with sections
+│   │   ├── contact/page.tsx # Contact page
+│   │   ├── 404.tsx          # Not found page
+│   │   ├── sitemap.ts       # SEO sitemap
+│   │   ├── robots.ts        # Robots.txt
+│   │   └── manifest.ts      # PWA manifest
+│   ├── components/
+│   │   ├── sections/        # HeroSection, FeaturesGrid, PricingSection...
+│   │   ├── layout/          # Header, Footer
+│   │   └── ui/              # Button, Card, Badge (shadcn-style)
+│   ├── lib/                 # Utilities (utils.ts)
+│   └── site.config.ts       # Central config for colors, fonts, content
+├── .design-forge/           # iPhone preview (open anytime)
+├── tailwind.config.ts
+├── next.config.ts
+└── package.json
+```
+
+All sections, pages, and styling are driven by the design tokens in `site.config.ts` — edit one file to update everything.
+
+---
+
+## iPhone Preview
+
+The preview shows your generated site in both a desktop browser frame and an iPhone 15 Pro frame, alongside a spec panel with:
+- **Color palette** — primary, secondary, accent, background
+- **Typography** — font family and heading font
+- **Sections** — all selected components
+- **Features** — enabled capabilities
+- **Routes** — all generated pages
+
+Run `df preview` anytime to re-open it.
+
+---
+
+## Programmatic API
 
 ```js
 const forge = require('design-forge-cli');
 
 // Generate a resource plan
-const plan = forge.generatePlan(
-  'dashboard',
-  ['modern', 'dark'],
-  ['charts', 'icons', 'fonts']
-);
-// plan → [{ name: 'shadcn/ui', install: 'npx shadcn@latest init -d', ... }, ...]
+const plan = forge.generatePlan('dashboard', ['modern', 'dark'], ['charts', 'icons']);
+// → [{ name: 'shadcn/ui', install: '...' }, ...]
 
-// Analyze an existing project for missing resources
+// Analyze project for missing resources
 const recommendations = forge.analyzeProject('./my-project');
-// → [{ name: 'Lucide Icons', reason: 'No icon library detected', install: 'npm install lucide-react' }]
+// → [{ name: 'Lucide Icons', reason: 'No icon library detected', install: '...' }]
 
-// Apply the design token consistency layer
-forge.applyConsistency('./my-project');
-// → { success: true, path: './my-project/design-tokens.css' }
-
-// Browse the resource catalog
-console.log(forge.resources['ui-components']);
-// → [{ name: 'shadcn/ui', ... }, { name: 'daisyUI', ... }, ...]
-
-// Style and feature maps
-console.log(forge.STYLE_MAP);
-console.log(forge.FEATURE_MAP);
+// Generate an iPhone preview
+const { PreviewGenerator } = forge;
+PreviewGenerator.generate(blueprint, './output-dir');
+PreviewGenerator.openPreview('./output-dir/.design-forge/preview.html');
 ```
 
 ---
 
-## Consistency Layer
+## Publishing to npm
 
-DesignForge includes a `design-tokens.css` file that normalizes components from different libraries (shadcn/ui, daisyUI, MagicUI, Radix, etc.) into a shared token system. It provides:
+```bash
+# 1. Build and test
+node bin/cli.js --help
 
-- **CSS custom properties** (`--df-*`) for spacing, radius, shadows, animation, typography, and containers
-- **Cross-library normalization** — make buttons, focus rings, and transitions consistent
-- **Utility classes** (`.df-container`, `.df-flex-center`, `.df-grid`, `.df-stack`) for common layouts
+# 2. Login to npm
+npm login
 
-To use it:
+# 3. Publish
+npm publish
 
-```css
-@import "design-tokens.css";
+# 4. Verify
+npx design-forge --version
 ```
-
-Then set `data-df-normalize` on your root element:
-
-```html
-<html data-df-normalize>
-```
-
----
-
-## Resource Catalog
-
-| Category | Resources |
-|---|---|
-| **UI Components** | shadcn/ui, daisyUI, Magic UI, Aceternity UI, Radix UI, Ark UI, Park UI, Mantine, Primer React |
-| **Icons** | Lucide, Phosphor Icons, Heroicons, Radix Icons, Tabler Icons, React Icons |
-| **Fonts** | Inter, Geist, Nunito, JetBrains Mono, Poppins, DM Sans, Plus Jakarta Sans, Cal Sans |
-| **Colors** | Tailwind Colors, Radix Colors, Open Color, Catppuccin, Flat UI Colors |
-| **Animations** | Framer Motion (Motion), GSAP, AOS, AutoAnimate, tailwindcss-animate, UseAnimations |
-| **3D** | Three.js, React Three Fiber, GSAP ScrollTrigger, Lenis, Particles.js, tsParticles |
-| **Charts** | Recharts, Chart.js, D3.js, Nivo, Visx, ApexCharts, ECharts |
-| **Forms** | React Hook Form, Zod, Formik, TanStack Form, React Final Form, Conform |
-| **Images** | unDraw, LottieFiles, Humaaans, Blush, Pexels, Unsplash, SVG Repo |
-
----
-
-## Credits & Licensing
-
-DesignForge curates links to existing open-source and free projects. All rights remain with their respective authors:
-
-| Resource | License |
-|---|---|
-| shadcn/ui | MIT |
-| daisyUI | MIT |
-| Magic UI | MIT |
-| Radix UI | MIT |
-| Lucide | ISC |
-| Phosphor Icons | MIT |
-| Heroicons | MIT |
-| Inter, Geist, Nunito, etc. | OFL (SIL Open Font License) |
-| Tailwind CSS | MIT |
-| Three.js | MIT |
-| Framer Motion | MIT |
-| GSAP | Standard License (free tier) |
-| D3.js | ISC |
-| Recharts | MIT |
-| Chart.js | MIT |
-| unDraw | MIT (illustrations are free to use) |
-| LottieFiles | MIT |
-| Pexels | Pexels License (free for commercial use) |
-| Unsplash | Unsplash License (free for commercial use) |
-
-**Note**: GSAP has a standard license with a generous free tier. Always verify the latest licensing terms on the respective project websites.
-
----
 
 ## Links
 
 - **Web App**: [https://design-forge.vercel.app](https://design-forge.vercel.app)
 - **GitHub**: [https://github.com/officialnullobjectweb/design-forge](https://github.com/officialnullobjectweb/design-forge)
-- **Report Issues**: [https://github.com/officialnullobjectweb/design-forge/issues](https://github.com/officialnullobjectweb/design-forge/issues)
+- **npm**: [https://www.npmjs.com/package/design-forge-cli](https://www.npmjs.com/package/design-forge-cli)
 
 ---
 
 ## Development
 
 ```bash
-# Clone the monorepo
 git clone https://github.com/officialnullobjectweb/design-forge.git
 cd design-forge/packages/design-forge-cli
 
-# Test the CLI locally
-node bin/cli.js
+# Test locally
+node bin/cli.js --help
 
-# Link globally for development
+# Link globally
 npm link
-design-forge
+design-forge create
 ```
