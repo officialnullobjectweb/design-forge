@@ -2,6 +2,38 @@ const fs = require('fs');
 const path = require('path');
 const catalog = require('./resources/catalog.json');
 
+const CATALOG_INDEX = {};
+Object.values(catalog).forEach(category => {
+  if (Array.isArray(category)) {
+    category.forEach(entry => {
+      CATALOG_INDEX[entry.name] = entry;
+    });
+  }
+});
+
+const CATALOG_ALIASES = {
+  'Lucide Icons': 'Lucide',
+  'MagicUI': 'Magic UI',
+  'Tailwind CSS': null,
+  'shadcn/ui': 'shadcn/ui',
+  'Framer Motion': null,
+  'Aceternity UI': null,
+  'NextAuth': null,
+  'React Email': null,
+  'React Three Fiber': null,
+  'AutoAnimate': null,
+  'Fontsource': 'Inter Font',
+  'Glassmorphism CSS': null,
+  'Stripe': null,
+};
+
+function resolveFromCatalog(key) {
+  if (CATALOG_INDEX[key]) return CATALOG_INDEX[key];
+  const alias = CATALOG_ALIASES[key];
+  if (alias && CATALOG_INDEX[alias]) return CATALOG_INDEX[alias];
+  return null;
+}
+
 const RESOURCE_MAP = {
   'Tailwind CSS':       { name: 'Tailwind CSS',       description: 'Utility-first CSS framework', install: '', category: 'core' },
   'shadcn/ui':          { name: 'shadcn/ui',          description: 'Copy-paste React components', install: 'npx shadcn@latest init -d --force', category: 'ui' },
@@ -27,16 +59,34 @@ const RESOURCE_MAP = {
   'Glassmorphism CSS':  { name: 'Glassmorphism CSS',  description: 'Glassmorphism backdrop utilities', install: '', category: 'css' },
 };
 
+function loadResources() {
+  const flat = [];
+  Object.values(catalog).forEach(category => {
+    if (Array.isArray(category)) {
+      category.forEach(entry => flat.push(entry));
+    }
+  });
+  return flat;
+}
+
 function generatePlan(type, styles, features) {
   const plan = [];
   const added = new Set();
 
   function add(key) {
-    const resource = RESOURCE_MAP[key];
-    if (resource && !added.has(key)) {
-      added.add(key);
-      plan.push({ ...resource, type: 'install' });
-    }
+    if (added.has(key)) return;
+    const catalogEntry = resolveFromCatalog(key);
+    const fallback = RESOURCE_MAP[key];
+    if (!catalogEntry && !fallback) return;
+    added.add(key);
+    plan.push({
+      name: key,
+      description: (catalogEntry || fallback).description,
+      install: (catalogEntry && catalogEntry.install) || fallback.install,
+      category: (catalogEntry && catalogEntry.category) || fallback.category,
+      size: (catalogEntry && catalogEntry.size) || 'small',
+      type: 'install',
+    });
   }
 
   add('Tailwind CSS');
@@ -152,4 +202,7 @@ module.exports = {
   applyConsistency,
   PreviewGenerator,
   resources: catalog,
+  loadResources,
+  resolveFromCatalog,
+  catalogIndex: CATALOG_INDEX,
 };

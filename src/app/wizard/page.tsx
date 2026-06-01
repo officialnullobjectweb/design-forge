@@ -415,28 +415,85 @@ function DesignPreview({ type, style }: { type: ProjectType; style: Style }) {
           </div>
         </div>
       ) : (
-        <div className="flex justify-center py-4">
+        <div className="flex justify-center py-3">
           <div className="relative" style={{
             width: '280px',
-            borderRadius: '36px',
-            border: '3px solid #1a1a1a',
-            background: '#000',
-            padding: '8px',
-            boxShadow: '0 20px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.08)',
+            padding: '10px',
+            borderRadius: '50px',
+            background: 'linear-gradient(135deg, #c8c9cb 0%, #8e8e93 25%, #636366 50%, #8e8e93 75%, #c8c9cb 100%)',
+            boxShadow: '0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,0,0,0.2), inset 0 0 0 1px rgba(255,255,255,0.08)',
           }}>
             <div style={{
-              width: '80px', height: '20px', background: '#000',
-              borderRadius: '16px', margin: '0 auto 6px',
-            }} />
-            <div className="overflow-y-auto" style={{
-              borderRadius: '28px',
-              maxHeight: '480px',
+              borderRadius: '40px',
+              overflow: 'hidden',
+              background: '#000',
+              position: 'relative',
             }}>
-              {previews[type]}
+              <div className="overflow-y-auto" style={{
+                maxHeight: '480px',
+                background: t.bg,
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+              }}>
+                <style>{`.overflow-y-auto::-webkit-scrollbar { display: none }`}</style>
+                {previews[type]}
+              </div>
+              <div style={{
+                position: 'absolute', top: '8px', left: '50%',
+                transform: 'translateX(-50%)',
+                width: '80px', height: '20px',
+                background: '#000',
+                borderRadius: '12px',
+                zIndex: 20,
+              }} />
+              <div style={{
+                position: 'absolute', bottom: '6px', left: '50%',
+                transform: 'translateX(-50%)',
+                width: '90px', height: '3px',
+                background: '#222',
+                borderRadius: '2px',
+                zIndex: 20,
+              }} />
+              <div style={{
+                position: 'absolute', top: 0, left: 0, right: 0,
+                height: '45%',
+                background: 'linear-gradient(to bottom, rgba(255,255,255,0.05), transparent 80%)',
+                borderRadius: '40px 40px 0 0',
+                pointerEvents: 'none',
+                zIndex: 15,
+              }} />
+              <div style={{
+                position: 'absolute', bottom: 0, left: 0, right: 0,
+                height: '15%',
+                background: 'linear-gradient(to top, rgba(0,0,0,0.15), transparent)',
+                borderRadius: '0 0 40px 40px',
+                pointerEvents: 'none',
+                zIndex: 15,
+              }} />
             </div>
             <div style={{
-              width: '90px', height: '3px', background: '#222',
-              borderRadius: '2px', margin: '6px auto 0',
+              position: 'absolute', left: '-3px', top: '85px',
+              width: '3px', height: '16px',
+              background: 'linear-gradient(to bottom, #a1a1aa, #71717a)',
+              borderRadius: '1px 0 0 1px',
+            }} />
+            <div style={{
+              position: 'absolute', left: '-3px', top: '115px',
+              width: '3px', height: '28px',
+              background: 'linear-gradient(to bottom, #a1a1aa, #71717a)',
+              borderRadius: '1px 0 0 1px',
+            }} />
+            <div style={{
+              position: 'absolute', left: '-3px', top: '148px',
+              width: '3px', height: '28px',
+              background: 'linear-gradient(to bottom, #a1a1aa, #71717a)',
+              borderRadius: '1px 0 0 1px',
+            }} />
+            <div style={{
+              position: 'absolute', right: '-3px', top: '130px',
+              width: '3px', height: '36px',
+              background: 'linear-gradient(to bottom, #a1a1aa, #71717a)',
+              borderRadius: '0 1px 1px 0',
             }} />
           </div>
         </div>
