@@ -46,7 +46,7 @@ Free design resources are scattered across the web. You hunt through bookmarks, 
 
 ### One-Command Setup
 ```bash
-bash <(curl -sL https://design-forge.vercel.app/cli/setup.sh)
+bash <(curl -sL https://design-forge-beta.vercel.app/cli/setup.sh)
 ```
 
 This will:

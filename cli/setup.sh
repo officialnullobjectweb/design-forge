@@ -87,7 +87,7 @@ echo -e "│  ${CYAN}•${NC} clsx/tw-merge     → import { cn } from '@/lib/ut
 echo -e "│  ${CYAN}•${NC} magicui           → import { Sparkles } from 'magicui/...'      │"
 echo -e "│  ${CYAN}•${NC} recharts          → import { BarChart } from 'recharts'         │"
 echo -e "├──────────────────────────────────────────────────────────┤"
-echo -e "│  ${DIM}More resources: https://design-forge.vercel.app${NC}                    │"
+echo -e "│  ${DIM}More resources: https://design-forge-beta.vercel.app${NC}                    │"
 echo -e "╰──────────────────────────────────────────────────────────╯"
 echo ""
 echo -e "  ${BOLD}Run ${CYAN}${PM} run dev${NC}${BOLD} to start building!${NC}"
