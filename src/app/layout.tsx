@@ -15,36 +15,25 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "DesignForge — Your Free Design Command Center",
   description:
-    "Aggregating the best FREE UI/UX design resources — shadcn/ui, MagicUI, Framer Motion, Three.js, Lucide Icons, and more. One command, zero cost, premium results.",
+    "80+ free UI/UX design resources aggregated in one place. Components, fonts, colors, animations, templates, design skills, and more. One command, zero cost, premium results.",
   keywords: [
-    "free ui components",
-    "tailwind css",
-    "shadcn ui",
-    "framer motion",
-    "react components",
-    "free design resources",
-    "ui library",
-    "open source design",
+    "free ui components", "tailwind css", "shadcn ui", "framer motion",
+    "google fonts", "free icons", "design resources", "ui library",
+    "open source design", "free templates", "design skills",
   ],
   openGraph: {
     title: "DesignForge — Free Design Command Center",
-    description:
-      "18+ free UI/UX resources aggregated in one place. One command setup, premium results.",
+    description: "80+ free design resources, templates, and skills in one place.",
     type: "website",
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-white text-zinc-900">
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-white text-zinc-900 font-sans">
         {children}
       </body>
     </html>

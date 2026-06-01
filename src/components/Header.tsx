@@ -1,17 +1,22 @@
 'use client';
 
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X, Sparkles, Palette, BookOpen, Wand2 } from 'lucide-react';
 import { useState } from 'react';
-import { cn } from '@/lib/utils';
+import { usePathname } from 'next/navigation';
+
+const navLinks = [
+  { label: 'Resources', href: '/#resources' },
+  { label: 'Templates', href: '/templates' },
+  { label: 'Skills', href: '/skills' },
+  { label: 'Wizard', href: '/wizard' },
+  { label: 'CLI', href: '/#cli' },
+  { label: 'Credits', href: '/#credits' },
+];
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  const navLinks = [
-    { label: 'Resources', href: '#resources' },
-    { label: 'CLI Tool', href: '#cli' },
-    { label: 'Credits', href: '#credits' },
-  ];
+  const pathname = usePathname();
+  const isHome = pathname === '/';
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
@@ -22,26 +27,33 @@ export default function Header() {
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-brand-500 to-brand-700 shadow-sm">
                 <Sparkles className="h-4 w-4 text-white" />
               </div>
-              <span className="text-sm font-bold tracking-tight text-zinc-900">
+              <span className="text-sm font-bold tracking-tight text-zinc-900 hidden sm:inline">
                 Design<span className="text-brand-600">Forge</span>
               </span>
             </a>
 
             <nav className="hidden md:flex items-center gap-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="rounded-lg px-3.5 py-2 text-xs font-medium text-zinc-600 transition-all hover:bg-zinc-100 hover:text-zinc-900"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href || (link.href !== '/' && pathname?.startsWith(link.href));
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className={`rounded-lg px-3 py-2 text-xs font-medium transition-all ${
+                      isActive
+                        ? 'bg-brand-50 text-brand-700'
+                        : 'text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900'
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
               <a
                 href="https://github.com/officialnullobjectweb/design-forge"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-3 rounded-lg bg-zinc-900 px-4 py-2 text-xs font-medium text-white transition-all hover:bg-zinc-800"
+                className="ml-2 rounded-lg bg-zinc-900 px-4 py-2 text-xs font-medium text-white transition-all hover:bg-zinc-800"
               >
                 GitHub →
               </a>

@@ -16,13 +16,6 @@
   --color-brand-700: #5b21b6;
   --color-brand-800: #4c1d95;
   --color-brand-900: #3b0764;
-
-  --color-surface: #fafafa;
-  --color-surface-elevated: #ffffff;
-  --color-border: #e5e7eb;
-  --color-text-primary: #111827;
-  --color-text-secondary: #6b7280;
-  --color-text-tertiary: #9ca3af;
 }
 
 @layer base {
@@ -30,7 +23,6 @@
     --background: #ffffff;
     --foreground: #111827;
   }
-
   @media (prefers-color-scheme: dark) {
     :root {
       --background: #0a0a0a;
@@ -39,15 +31,7 @@
   }
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
-}
+html { scroll-behavior: smooth; }
 
 @utility glass {
   background: rgba(255, 255, 255, 0.7);
@@ -56,27 +40,10 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-@utility glass-dark {
-  background: rgba(10, 10, 10, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
 @utility gradient-text {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-}
-
-@utility shimmer {
-  background-size: 200% 100%;
-  animation: shimmer 3s ease-in-out infinite;
-}
-
-@keyframes shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
 }
 
 @utility animate-in {
@@ -86,8 +53,5 @@ body {
 }
 
 @keyframes animate-in {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }

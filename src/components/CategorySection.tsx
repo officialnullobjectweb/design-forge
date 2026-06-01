@@ -1,6 +1,6 @@
 'use client';
 
-import type { CategoryInfo, Resource } from '@/data/resources';
+import type { CategoryInfo, Resource } from '@/data/categories';
 import ResourceCard from './ResourceCard';
 
 export default function CategorySection({
@@ -15,9 +15,9 @@ export default function CategorySection({
       <div className="mx-auto max-w-7xl">
         <div className="mb-8">
           <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-zinc-50 px-3.5 py-1 text-xs font-medium text-zinc-700 ring-1 ring-zinc-200/50">
-            {category.label}
+            {resources.length} resources
           </div>
-          <h2 className="text-2xl font-bold text-zinc-900 sm:text-3xl">
+          <h2 className="text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl">
             {category.label}
           </h2>
           <p className="mt-2 text-sm text-zinc-500 max-w-2xl">
@@ -25,7 +25,7 @@ export default function CategorySection({
           </p>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {resources.map((resource) => (
             <ResourceCard
               key={resource.id}
