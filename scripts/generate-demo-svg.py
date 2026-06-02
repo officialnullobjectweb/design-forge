@@ -5,7 +5,7 @@ import os
 
 WIDTH = 810
 HEIGHT = 890
-PAD_OUTER = 20
+PAD_OUTER = 10
 TERM_X = PAD_OUTER
 TERM_Y = PAD_OUTER
 TERM_W = WIDTH - 2 * PAD_OUTER
@@ -72,11 +72,11 @@ def ansi_to_html(s):
                 elif c == '38;5;47':
                     fg = '#4ade80'
                 elif c == '38;5;33':
-                    fg = '#60a5fa'
+                    fg = '#ffffff'
                 elif c == '38;5;245':
-                    fg = '#e4e4e7'
+                    fg = '#86efac'
                 elif c == '38;5;240':
-                    fg = '#a1a1aa'
+                    fg = '#ffffff'
         else:
             style = []
             if fg: style.append(f'fill:{fg}')
@@ -97,20 +97,20 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {WIDTH} {HEIGHT}"
     text {{ font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace; font-size: {FONT_SIZE}px; }}
   </style>
 </defs>
-<rect width="{WIDTH}" height="{HEIGHT}" fill="#ffffff"/>
-<rect x="{TERM_X}" y="{TERM_Y}" width="{TERM_W}" height="{TERM_H}" fill="url(#bg)" rx="12" stroke="#d4d4d8" stroke-width="2"/>
+<rect width="{WIDTH}" height="{HEIGHT}" fill="#fafafa"/>
+<rect x="{TERM_X}" y="{TERM_Y}" width="{TERM_W}" height="{TERM_H}" fill="url(#bg)" rx="12" stroke="#86efac" stroke-width="1.5"/>
 <rect x="{TERM_X}" y="{TERM_Y}" width="{TERM_W}" height="32" fill="#313244" rx="12"/>
 <rect x="{TERM_X}" y="{TERM_Y + 16}" width="{TERM_W}" height="16" fill="#313244"/>
-<circle cx="{TERM_X + 16}" cy="{TERM_Y + 16}" r="6" fill="#f38ba8"/>
-<circle cx="{TERM_X + 34}" cy="{TERM_Y + 16}" r="6" fill="#f9e2af"/>
-<circle cx="{TERM_X + 52}" cy="{TERM_Y + 16}" r="6" fill="#a6e3a1"/>
-<text x="{TERM_X + TERM_W // 2}" y="{TERM_Y + 21}" text-anchor="middle" fill="#a6adc8" font-size="12">numb-design — npx numb-design init</text>
+<circle cx="{TERM_X + 16}" cy="{TERM_Y + 16}" r="6" fill="#86efac"/>
+<circle cx="{TERM_X + 34}" cy="{TERM_Y + 16}" r="6" fill="#86efac"/>
+<circle cx="{TERM_X + 52}" cy="{TERM_Y + 16}" r="6" fill="#86efac"/>
+<text x="{TERM_X + TERM_W // 2}" y="{TERM_Y + 21}" text-anchor="middle" fill="#86efac" font-size="12">numb-design — npx numb-design init</text>
 '''
 
 for i, (_, content) in enumerate(lines):
     y = PAD_Y + i * LINE_H
     if not content:
-        svg += f'<text x="{PAD_X}" y="{y}" fill="#ffffff"></text>\n'
+        svg += f'<text x="{PAD_X}" y="{y}" fill="#86efac"></text>\n'
     else:
         html = ansi_to_html(content)
         svg += f'<text x="{PAD_X}" y="{y}" xml:space="preserve">{html}</text>\n'
