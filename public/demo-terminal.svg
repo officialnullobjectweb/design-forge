@@ -8,7 +8,7 @@
     text { font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace; font-size: 14px; }
   </style>
 </defs>
-<rect width="800" height="880" fill="url(#bg)" rx="12"/>
+<rect width="800" height="880" fill="url(#bg)" rx="12" stroke="#e4e4e7" stroke-width="1.5"/>
 
 <!-- Title bar -->
 <rect x="0" y="0" width="800" height="32" fill="#2a2b3d" rx="12"/>
@@ -16,7 +16,7 @@
 <circle cx="16" cy="16" r="6" fill="#ff5555"/>
 <circle cx="34" cy="16" r="6" fill="#f1fa8c"/>
 <circle cx="52" cy="16" r="6" fill="#50fa7b"/>
-<text x="400" y="21" text-anchor="middle" fill="#888888" font-size="12">numb-design — npx numb-design init</text>
+<text x="400" y="21" text-anchor="middle" fill="#d4d4d8" font-size="12">numb-design — npx numb-design init</text>
 
 <text x="25" y="45"> </text>
 <text x="25" y="67" xml:space="preserve"><tspan> </tspan><tspan>~</tspan><tspan> </tspan><tspan style="font-weight:bold">Numb.Design</tspan><tspan> </tspan><tspan>v1.0.0</tspan><tspan></tspan></text>

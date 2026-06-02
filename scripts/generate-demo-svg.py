@@ -78,10 +78,10 @@ def ansi_to_html(s):
                     styles.append('color:#61afef')
                 elif c == '38;5;245':
                     styles = [s for s in styles if 'color' not in s]
-                    styles.append('color:#888888')
+                    styles.append('color:#d4d4d8')
                 elif c == '38;5;240':
                     styles = [s for s in styles if 'color' not in s]
-                    styles.append('color:#585858')
+                    styles.append('color:#a1a1aa')
         else:
             if styles:
                 result.append(f'<tspan style="{";".join(styles)}">{part}</tspan>')
@@ -100,7 +100,7 @@ svg_parts.append(f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {WIDTH
     text {{ font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace; font-size: {FONT_SIZE}px; }}
   </style>
 </defs>
-<rect width="{WIDTH}" height="{HEIGHT}" fill="url(#bg)" rx="12"/>
+<rect width="{WIDTH}" height="{HEIGHT}" fill="url(#bg)" rx="12" stroke="#e4e4e7" stroke-width="1.5"/>
 
 <!-- Title bar -->
 <rect x="0" y="0" width="{WIDTH}" height="32" fill="#2a2b3d" rx="12"/>
@@ -108,7 +108,7 @@ svg_parts.append(f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {WIDTH
 <circle cx="16" cy="16" r="6" fill="#ff5555"/>
 <circle cx="34" cy="16" r="6" fill="#f1fa8c"/>
 <circle cx="52" cy="16" r="6" fill="#50fa7b"/>
-<text x="{WIDTH//2}" y="21" text-anchor="middle" fill="#888888" font-size="12">numb-design — npx numb-design init</text>
+<text x="{WIDTH//2}" y="21" text-anchor="middle" fill="#d4d4d8" font-size="12">numb-design — npx numb-design init</text>
 ''')
 
 for i, (_, content) in enumerate(lines):
