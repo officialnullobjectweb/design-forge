@@ -28,8 +28,7 @@ export default function Header() {
   const pathname = usePathname();
 
   const { scrollY } = useScroll();
-  const progress = useTransform(scrollY, [0, 120], [0, 1]);
-  const scrolled = useTransform(scrollY, [20, 120], [0, 1]);
+  const progress = useTransform(scrollY, [0, 800], [0, 1]);
 
   useEffect(() => {
     fetch('https://api.github.com/repos/officialnullobjectweb/design-forge')
@@ -40,7 +39,7 @@ export default function Header() {
 
   return (
     <motion.header className="fixed top-0 left-0 right-0 z-50">
-      <motion.div className="mx-auto px-3 sm:px-4 lg:px-6" style={{ maxWidth: useTransform(progress, [0, 1], [1152, 768]) }}>
+      <motion.div className="px-3 sm:px-4 lg:px-6" style={{ width: useTransform(progress, [0, 1], ['80%', '70%']), maxWidth: 1200, marginLeft: 'auto', marginRight: 'auto' }}>
         <motion.div
           className="border border-white/20 shadow-sm shadow-brand-500/5"
           style={{
