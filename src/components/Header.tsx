@@ -51,7 +51,7 @@ export default function Header() {
               style={{ scaleX: bottomLineScaleX, opacity: progress }}
             />
             <a href="/" className="flex items-center">
-              <img src="/logo.png" alt="Numb.Design" className="h-24 w-auto" />
+              <img src="/logo.png" alt="Numb.Design" className="h-20 w-auto" />
             </a>
 
             <nav className="hidden md:flex items-center gap-1">
