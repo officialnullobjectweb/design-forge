@@ -50,22 +50,8 @@ export default function Header() {
               className="absolute inset-x-0 bottom-0 h-[1.5px] origin-left bg-gradient-to-r from-transparent via-brand-500 to-transparent"
               style={{ scaleX: bottomLineScaleX, opacity: progress }}
             />
-            <a href="/" className="flex items-center gap-2.5 group">
-              <div className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-brand-500 to-brand-700 shadow-sm overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent" />
-                <svg className="relative text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ height: '62%', width: '62%' }}>
-                  <path d="M10 2L7.6 5.2c-.4.5-.4 1.2 0 1.7l.8 1.1c.4.5.4 1.2 0 1.7L5 14" />
-                  <path d="M14 2l2.4 3.2c.4.5.4 1.2 0 1.7l-.8 1.1c-.4.5-.4 1.2 0 1.7L19 14" />
-                  <path d="M5 14h14" />
-                  <path d="M4 16h16" />
-                  <path d="M3 18h18" />
-                  <path d="M3 20h18" />
-                  <path d="M3 22h18" />
-                </svg>
-              </div>
-              <span className="hidden text-base font-bold tracking-tight text-zinc-900 sm:inline">
-                Numb.<span className="text-brand-600">Design</span>
-              </span>
+            <a href="/" className="flex items-center">
+              <img src="/logo.png" alt="Numb.Design" className="h-9 w-auto" />
             </a>
 
             <nav className="hidden md:flex items-center gap-1">
