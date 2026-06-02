@@ -8,6 +8,10 @@ We built Numb.Design to solve that. Instead of asking "which package do I need f
 
 ---
 
+<p align="center">
+  <img src="public/demo-terminal.svg" alt="Numb.Design CLI demo" width="100%" style="max-width: 800px; border-radius: 12px;">
+</p>
+
 ## The Problem We Set Out To Solve
 
 Starting a new frontend project usually goes like this:

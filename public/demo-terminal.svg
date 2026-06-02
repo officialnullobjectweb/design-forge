@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" style="max-width:800px;border-radius:12px">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#1a1b26"/>
+    <stop offset="100%" stop-color="#0f0f15"/>
+  </linearGradient>
+  <style>
+    text { font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace; font-size: 14px; }
+  </style>
+</defs>
+<rect width="800" height="500" fill="url(#bg)" rx="12"/>
+
+<!-- Title bar -->
+<rect x="0" y="0" width="800" height="32" fill="#2a2b3d" rx="12"/>
+<rect x="0" y="16" width="800" height="16" fill="#2a2b3d"/>
+<circle cx="16" cy="16" r="6" fill="#ff5555"/>
+<circle cx="34" cy="16" r="6" fill="#f1fa8c"/>
+<circle cx="52" cy="16" r="6" fill="#50fa7b"/>
+<text x="400" y="21" text-anchor="middle" fill="#888888" font-size="12">numb-design — npx numb-design init</text>
+
+<text x="25" y="45"> </text>
+<text x="25" y="67" xml:space="preserve"><tspan> </tspan><tspan>~</tspan><tspan> </tspan><tspan style="font-weight:bold">Numb.Design</tspan><tspan> </tspan><tspan>v1.0.0</tspan><tspan></tspan></text>
+<text x="25" y="89"> </text>
+<text x="25" y="111" xml:space="preserve"><tspan> </tspan><tspan>?</tspan><tspan> </tspan><tspan style="font-weight:bold">What are you building?</tspan><tspan></tspan></text>
+<text x="25" y="133" xml:space="preserve"><tspan>   </tspan><tspan>Landing Page</tspan><tspan></tspan></text>
+<text x="25" y="155" xml:space="preserve"><tspan>   </tspan><tspan>◉ Dashboard</tspan><tspan></tspan></text>
+<text x="25" y="177" xml:space="preserve"><tspan>   </tspan><tspan>E-Commerce</tspan><tspan></tspan></text>
+<text x="25" y="199" xml:space="preserve"><tspan>   </tspan><tspan>Portfolio</tspan><tspan></tspan></text>
+<text x="25" y="221" xml:space="preserve"><tspan>   </tspan><tspan>Blog</tspan><tspan></tspan></text>
+<text x="25" y="243" xml:space="preserve"><tspan>   </tspan><tspan>SaaS App</tspan><tspan></tspan></text>
+<text x="25" y="265" xml:space="preserve"><tspan>   </tspan><tspan>Web App</tspan><tspan></tspan></text>
+<text x="25" y="287"> </text>
+<text x="25" y="309" xml:space="preserve"><tspan> </tspan><tspan>?</tspan><tspan> </tspan><tspan style="font-weight:bold">Pick your style:</tspan><tspan></tspan></text>
+<text x="25" y="331" xml:space="preserve"><tspan>   </tspan><tspan>Modern</tspan><tspan></tspan></text>
+<text x="25" y="353" xml:space="preserve"><tspan>   </tspan><tspan>Minimal</tspan><tspan></tspan></text>
+<text x="25" y="375" xml:space="preserve"><tspan>   </tspan><tspan>◉ Dark</tspan><tspan></tspan></text>
+<text x="25" y="397" xml:space="preserve"><tspan>   </tspan><tspan>Glassmorphic</tspan><tspan></tspan></text>
+<text x="25" y="419" xml:space="preserve"><tspan>   </tspan><tspan>Playful</tspan><tspan></tspan></text>
+<text x="25" y="441" xml:space="preserve"><tspan>   </tspan><tspan>Brutalist</tspan><tspan></tspan></text>
+<text x="25" y="463"> </text>
+<text x="25" y="485" xml:space="preserve"><tspan> </tspan><tspan>?</tspan><tspan> </tspan><tspan style="font-weight:bold">Select features:</tspan><tspan></tspan></text>
+<text x="25" y="507" xml:space="preserve"><tspan>   </tspan><tspan>☑ Animations</tspan><tspan></tspan></text>
+<text x="25" y="529" xml:space="preserve"><tspan>   </tspan><tspan>☐ 3D Graphics</tspan><tspan></tspan></text>
+<text x="25" y="551" xml:space="preserve"><tspan>   </tspan><tspan>☑ Charts</tspan><tspan></tspan></text>
+<text x="25" y="573" xml:space="preserve"><tspan>   </tspan><tspan>☐ Forms</tspan><tspan></tspan></text>
+<text x="25" y="595" xml:space="preserve"><tspan>   </tspan><tspan>☐ Auth</tspan><tspan></tspan></text>
+<text x="25" y="617" xml:space="preserve"><tspan>   </tspan><tspan>☑ Icons</tspan><tspan></tspan></text>
+<text x="25" y="639"> </text>
+<text x="25" y="661" xml:space="preserve"><tspan> </tspan><tspan>✔</tspan><tspan> </tspan><tspan style="font-weight:bold">Install plan generated!</tspan><tspan></tspan></text>
+<text x="25" y="683"> </text>
+<text x="25" y="705" xml:space="preserve"><tspan>   </tspan><tspan>$</tspan><tspan> npm install next react react-dom tailwindcss</tspan></text>
+<text x="25" y="727" xml:space="preserve"><tspan>   </tspan><tspan>$</tspan><tspan> npm install framer-motion lucide-react recharts</tspan></text>
+<text x="25" y="749" xml:space="preserve"><tspan>   </tspan><tspan>$</tspan><tspan> npx shadcn@latest init</tspan></text>
+<text x="25" y="771"> </text>
+<text x="25" y="793" xml:space="preserve"><tspan>   </tspan><tspan>8 packages · zero bloat · ready in 30s</tspan><tspan></tspan></text>
+<text x="25" y="815"> </text>
+<text x="25" y="837" xml:space="preserve"><tspan> </tspan><tspan>?</tspan><tspan> </tspan><tspan style="font-weight:bold">Run this install plan now?</tspan><tspan>  </tspan><tspan>(Y/n)</tspan><tspan></tspan></text>
+</svg>
