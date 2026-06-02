@@ -448,4 +448,4 @@ MIT
 - **Documentation:** [https://numb.design/docs](https://numbdesign.vercel.app/docs)
 - **GitHub:** [https://github.com/officialnullobjectweb/Numb.design](https://github.com/officialnullobjectweb/Numb.design)
 - **npm:** [https://www.npmjs.com/package/numb-design](https://www.npmjs.com/package/numb-design)
-- **Interactive Wizard:** [https://numb.design/wizard](https://numb.design/wizard)
+- **Interactive Wizard:** [https://numb.design/wizard](https://numbdesign.vercel.app/wizard)
