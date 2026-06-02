@@ -1,58 +1,56 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 880" width="100%" style="max-width:800px;border-radius:12px">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 810 890" width="100%">
 <defs>
   <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0%" stop-color="#1a1b26"/>
-    <stop offset="100%" stop-color="#0f0f15"/>
+    <stop offset="0%" stop-color="#1e1e2e"/>
+    <stop offset="100%" stop-color="#181825"/>
   </linearGradient>
   <style>
     text { font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace; font-size: 14px; }
   </style>
 </defs>
-<rect width="800" height="880" fill="url(#bg)" rx="12" stroke="#e4e4e7" stroke-width="1.5"/>
-
-<!-- Title bar -->
-<rect x="0" y="0" width="800" height="32" fill="#2a2b3d" rx="12"/>
-<rect x="0" y="16" width="800" height="16" fill="#2a2b3d"/>
-<circle cx="16" cy="16" r="6" fill="#ff5555"/>
-<circle cx="34" cy="16" r="6" fill="#f1fa8c"/>
-<circle cx="52" cy="16" r="6" fill="#50fa7b"/>
-<text x="400" y="21" text-anchor="middle" fill="#d4d4d8" font-size="12">numb-design — npx numb-design init</text>
-
-<text x="25" y="45"> </text>
-<text x="25" y="67" xml:space="preserve"><tspan> </tspan><tspan>~</tspan><tspan> </tspan><tspan style="font-weight:bold">Numb.Design</tspan><tspan> </tspan><tspan>v1.0.0</tspan><tspan></tspan></text>
-<text x="25" y="89"> </text>
-<text x="25" y="111" xml:space="preserve"><tspan> </tspan><tspan>?</tspan><tspan> </tspan><tspan style="font-weight:bold">What are you building?</tspan><tspan></tspan></text>
-<text x="25" y="133" xml:space="preserve"><tspan>   </tspan><tspan>Landing Page</tspan><tspan></tspan></text>
-<text x="25" y="155" xml:space="preserve"><tspan>   </tspan><tspan>◉ Dashboard</tspan><tspan></tspan></text>
-<text x="25" y="177" xml:space="preserve"><tspan>   </tspan><tspan>E-Commerce</tspan><tspan></tspan></text>
-<text x="25" y="199" xml:space="preserve"><tspan>   </tspan><tspan>Portfolio</tspan><tspan></tspan></text>
-<text x="25" y="221" xml:space="preserve"><tspan>   </tspan><tspan>Blog</tspan><tspan></tspan></text>
-<text x="25" y="243" xml:space="preserve"><tspan>   </tspan><tspan>SaaS App</tspan><tspan></tspan></text>
-<text x="25" y="265" xml:space="preserve"><tspan>   </tspan><tspan>Web App</tspan><tspan></tspan></text>
-<text x="25" y="287"> </text>
-<text x="25" y="309" xml:space="preserve"><tspan> </tspan><tspan>?</tspan><tspan> </tspan><tspan style="font-weight:bold">Pick your style:</tspan><tspan></tspan></text>
-<text x="25" y="331" xml:space="preserve"><tspan>   </tspan><tspan>Modern</tspan><tspan></tspan></text>
-<text x="25" y="353" xml:space="preserve"><tspan>   </tspan><tspan>Minimal</tspan><tspan></tspan></text>
-<text x="25" y="375" xml:space="preserve"><tspan>   </tspan><tspan>◉ Dark</tspan><tspan></tspan></text>
-<text x="25" y="397" xml:space="preserve"><tspan>   </tspan><tspan>Glassmorphic</tspan><tspan></tspan></text>
-<text x="25" y="419" xml:space="preserve"><tspan>   </tspan><tspan>Playful</tspan><tspan></tspan></text>
-<text x="25" y="441" xml:space="preserve"><tspan>   </tspan><tspan>Brutalist</tspan><tspan></tspan></text>
-<text x="25" y="463"> </text>
-<text x="25" y="485" xml:space="preserve"><tspan> </tspan><tspan>?</tspan><tspan> </tspan><tspan style="font-weight:bold">Select features:</tspan><tspan></tspan></text>
-<text x="25" y="507" xml:space="preserve"><tspan>   </tspan><tspan>☑ Animations</tspan><tspan></tspan></text>
-<text x="25" y="529" xml:space="preserve"><tspan>   </tspan><tspan>☐ 3D Graphics</tspan><tspan></tspan></text>
-<text x="25" y="551" xml:space="preserve"><tspan>   </tspan><tspan>☑ Charts</tspan><tspan></tspan></text>
-<text x="25" y="573" xml:space="preserve"><tspan>   </tspan><tspan>☐ Forms</tspan><tspan></tspan></text>
-<text x="25" y="595" xml:space="preserve"><tspan>   </tspan><tspan>☐ Auth</tspan><tspan></tspan></text>
-<text x="25" y="617" xml:space="preserve"><tspan>   </tspan><tspan>☑ Icons</tspan><tspan></tspan></text>
-<text x="25" y="639"> </text>
-<text x="25" y="661" xml:space="preserve"><tspan> </tspan><tspan>✔</tspan><tspan> </tspan><tspan style="font-weight:bold">Install plan generated!</tspan><tspan></tspan></text>
-<text x="25" y="683"> </text>
-<text x="25" y="705" xml:space="preserve"><tspan>   </tspan><tspan>$</tspan><tspan> npm install next react react-dom tailwindcss</tspan></text>
-<text x="25" y="727" xml:space="preserve"><tspan>   </tspan><tspan>$</tspan><tspan> npm install framer-motion lucide-react recharts</tspan></text>
-<text x="25" y="749" xml:space="preserve"><tspan>   </tspan><tspan>$</tspan><tspan> npx shadcn@latest init</tspan></text>
-<text x="25" y="771"> </text>
-<text x="25" y="793" xml:space="preserve"><tspan>   </tspan><tspan>8 packages · zero bloat · ready in 30s</tspan><tspan></tspan></text>
-<text x="25" y="815"> </text>
-<text x="25" y="837" xml:space="preserve"><tspan> </tspan><tspan>?</tspan><tspan> </tspan><tspan style="font-weight:bold">Run this install plan now?</tspan><tspan>  </tspan><tspan>(Y/n)</tspan><tspan></tspan></text>
+<rect width="810" height="890" fill="#ffffff"/>
+<rect x="20" y="20" width="770" height="850" fill="url(#bg)" rx="12" stroke="#d4d4d8" stroke-width="2"/>
+<rect x="20" y="20" width="770" height="32" fill="#313244" rx="12"/>
+<rect x="20" y="36" width="770" height="16" fill="#313244"/>
+<circle cx="36" cy="36" r="6" fill="#f38ba8"/>
+<circle cx="54" cy="36" r="6" fill="#f9e2af"/>
+<circle cx="72" cy="36" r="6" fill="#a6e3a1"/>
+<text x="405" y="41" text-anchor="middle" fill="#a6adc8" font-size="12">numb-design — npx numb-design init</text>
+<text x="25" y="65" fill="#ffffff"></text>
+<text x="25" y="87" xml:space="preserve"><tspan style="fill:#ffffff"> </tspan><tspan style="fill:#ffffff">~</tspan><tspan style="fill:#ffffff"> </tspan><tspan style="font-weight:bold">Numb.Design</tspan><tspan style="fill:#ffffff"> </tspan><tspan style="fill:#ffffff">v1.0.1</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="109" fill="#ffffff"></text>
+<text x="25" y="131" xml:space="preserve"><tspan style="fill:#ffffff"> </tspan><tspan style="fill:#ffffff">?</tspan><tspan style="fill:#ffffff"> </tspan><tspan style="font-weight:bold">What are you building?</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="153" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">Landing Page</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="175" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">◉ Dashboard</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="197" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">E-Commerce</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="219" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">Portfolio</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="241" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">Blog</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="263" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">SaaS App</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="285" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">Web App</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="307" fill="#ffffff"></text>
+<text x="25" y="329" xml:space="preserve"><tspan style="fill:#ffffff"> </tspan><tspan style="fill:#ffffff">?</tspan><tspan style="fill:#ffffff"> </tspan><tspan style="font-weight:bold">Pick your style:</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="351" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">Modern</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="373" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">Minimal</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="395" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">◉ Dark</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="417" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">Glassmorphic</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="439" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">Playful</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="461" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">Brutalist</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="483" fill="#ffffff"></text>
+<text x="25" y="505" xml:space="preserve"><tspan style="fill:#ffffff"> </tspan><tspan style="fill:#ffffff">?</tspan><tspan style="fill:#ffffff"> </tspan><tspan style="font-weight:bold">Select features:</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="527" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">☑ Animations</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="549" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">☐ 3D Graphics</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="571" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">☑ Charts</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="593" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">☐ Forms</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="615" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">☐ Auth</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="637" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">☑ Icons</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="659" fill="#ffffff"></text>
+<text x="25" y="681" xml:space="preserve"><tspan style="fill:#ffffff"> </tspan><tspan style="fill:#ffffff">✔</tspan><tspan style="fill:#ffffff"> </tspan><tspan style="font-weight:bold">Install plan generated!</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="703" fill="#ffffff"></text>
+<text x="25" y="725" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">$</tspan><tspan style="fill:#ffffff"> npm install next react react-dom tailwindcss</tspan></text>
+<text x="25" y="747" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">$</tspan><tspan style="fill:#ffffff"> npm install framer-motion lucide-react recharts</tspan></text>
+<text x="25" y="769" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">$</tspan><tspan style="fill:#ffffff"> npx shadcn@latest init</tspan></text>
+<text x="25" y="791" fill="#ffffff"></text>
+<text x="25" y="813" xml:space="preserve"><tspan style="fill:#ffffff">   </tspan><tspan style="fill:#ffffff">8 packages · zero bloat · ready in 30s</tspan><tspan style="fill:#ffffff"></tspan></text>
+<text x="25" y="835" fill="#ffffff"></text>
+<text x="25" y="857" xml:space="preserve"><tspan style="fill:#ffffff"> </tspan><tspan style="fill:#ffffff">?</tspan><tspan style="fill:#ffffff"> </tspan><tspan style="font-weight:bold">Run this install plan now?</tspan><tspan style="fill:#ffffff">  </tspan><tspan style="fill:#ffffff">(Y/n)</tspan><tspan style="fill:#ffffff"></tspan></text>
 </svg>

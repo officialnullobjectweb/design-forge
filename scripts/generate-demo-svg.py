@@ -1,20 +1,23 @@
 #!/usr/bin/env python3
-"""Generate a terminal demo SVG for the README."""
+"""Generate a terminal demo SVG for the README with high contrast."""
 
 import os
-import textwrap
 
-WIDTH = 800
-HEIGHT = 880
-COLS = 62
+WIDTH = 810
+HEIGHT = 890
+PAD_OUTER = 20
+TERM_X = PAD_OUTER
+TERM_Y = PAD_OUTER
+TERM_W = WIDTH - 2 * PAD_OUTER
+TERM_H = HEIGHT - 2 * PAD_OUTER
 FONT_SIZE = 14
 LINE_H = 22
 PAD_X = 25
-PAD_Y = 45
+PAD_Y = 65
 
 lines = [
     ("", ""),
-    ("", " \x1b[38;5;47m~\x1b[0m \x1b[1mNumb.Design\x1b[0m \x1b[38;5;240mv1.0.0\x1b[0m"),
+    ("", " \x1b[38;5;47m~\x1b[0m \x1b[1mNumb.Design\x1b[0m \x1b[38;5;240mv1.0.1\x1b[0m"),
     ("", ""),
     ("", " \x1b[38;5;33m?\x1b[0m \x1b[1mWhat are you building?\x1b[0m"),
     ("", "   \x1b[38;5;245mLanding Page\x1b[0m"),
@@ -52,77 +55,69 @@ lines = [
     ("", " \x1b[38;5;33m?\x1b[0m \x1b[1mRun this install plan now?\x1b[0m  \x1b[38;5;47m(Y/n)\x1b[0m"),
 ]
 
-def strip_ansi(s):
-    import re
-    return re.sub(r'\x1b\[[0-9;]*[mK]', '', s)
-
 def ansi_to_html(s):
-    """Convert ANSI codes to inline styles."""
     import re
     parts = re.split(r'(\x1b\[[0-9;]*m)', s)
-    styles = []
+    fg = None
+    bold = False
     result = []
     for part in parts:
         if part.startswith('\x1b['):
             codes = part[2:-1].split(';')
             for c in codes:
                 if c == '0':
-                    styles = []
+                    fg = None; bold = False
                 elif c == '1':
-                    styles.append('font-weight:bold')
+                    bold = True
                 elif c == '38;5;47':
-                    styles = [s for s in styles if 'color' not in s]
-                    styles.append('color:#50fa7b')
+                    fg = '#4ade80'
                 elif c == '38;5;33':
-                    styles = [s for s in styles if 'color' not in s]
-                    styles.append('color:#61afef')
+                    fg = '#60a5fa'
                 elif c == '38;5;245':
-                    styles = [s for s in styles if 'color' not in s]
-                    styles.append('color:#d4d4d8')
+                    fg = '#e4e4e7'
                 elif c == '38;5;240':
-                    styles = [s for s in styles if 'color' not in s]
-                    styles.append('color:#a1a1aa')
+                    fg = '#a1a1aa'
         else:
-            if styles:
-                result.append(f'<tspan style="{";".join(styles)}">{part}</tspan>')
+            style = []
+            if fg: style.append(f'fill:{fg}')
+            if bold: style.append('font-weight:bold')
+            if style:
+                result.append(f'<tspan style="{";".join(style)}">{part}</tspan>')
             else:
-                result.append(f'<tspan>{part}</tspan>')
+                result.append(f'<tspan style="fill:#ffffff">{part}</tspan>')
     return ''.join(result)
 
-svg_parts = []
-svg_parts.append(f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {WIDTH} {HEIGHT}" width="100%" style="max-width:800px;border-radius:12px">
+svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {WIDTH} {HEIGHT}" width="100%">
 <defs>
   <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0%" stop-color="#1a1b26"/>
-    <stop offset="100%" stop-color="#0f0f15"/>
+    <stop offset="0%" stop-color="#1e1e2e"/>
+    <stop offset="100%" stop-color="#181825"/>
   </linearGradient>
   <style>
     text {{ font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace; font-size: {FONT_SIZE}px; }}
   </style>
 </defs>
-<rect width="{WIDTH}" height="{HEIGHT}" fill="url(#bg)" rx="12" stroke="#e4e4e7" stroke-width="1.5"/>
-
-<!-- Title bar -->
-<rect x="0" y="0" width="{WIDTH}" height="32" fill="#2a2b3d" rx="12"/>
-<rect x="0" y="16" width="{WIDTH}" height="16" fill="#2a2b3d"/>
-<circle cx="16" cy="16" r="6" fill="#ff5555"/>
-<circle cx="34" cy="16" r="6" fill="#f1fa8c"/>
-<circle cx="52" cy="16" r="6" fill="#50fa7b"/>
-<text x="{WIDTH//2}" y="21" text-anchor="middle" fill="#d4d4d8" font-size="12">numb-design — npx numb-design init</text>
-''')
+<rect width="{WIDTH}" height="{HEIGHT}" fill="#ffffff"/>
+<rect x="{TERM_X}" y="{TERM_Y}" width="{TERM_W}" height="{TERM_H}" fill="url(#bg)" rx="12" stroke="#d4d4d8" stroke-width="2"/>
+<rect x="{TERM_X}" y="{TERM_Y}" width="{TERM_W}" height="32" fill="#313244" rx="12"/>
+<rect x="{TERM_X}" y="{TERM_Y + 16}" width="{TERM_W}" height="16" fill="#313244"/>
+<circle cx="{TERM_X + 16}" cy="{TERM_Y + 16}" r="6" fill="#f38ba8"/>
+<circle cx="{TERM_X + 34}" cy="{TERM_Y + 16}" r="6" fill="#f9e2af"/>
+<circle cx="{TERM_X + 52}" cy="{TERM_Y + 16}" r="6" fill="#a6e3a1"/>
+<text x="{TERM_X + TERM_W // 2}" y="{TERM_Y + 21}" text-anchor="middle" fill="#a6adc8" font-size="12">numb-design — npx numb-design init</text>
+'''
 
 for i, (_, content) in enumerate(lines):
     y = PAD_Y + i * LINE_H
     if not content:
-        svg_parts.append(f'<text x="{PAD_X}" y="{y}"> </text>')
+        svg += f'<text x="{PAD_X}" y="{y}" fill="#ffffff"></text>\n'
     else:
         html = ansi_to_html(content)
-        svg_parts.append(f'<text x="{PAD_X}" y="{y}" xml:space="preserve">{html}</text>')
+        svg += f'<text x="{PAD_X}" y="{y}" xml:space="preserve">{html}</text>\n'
 
-svg_parts.append('</svg>')
+svg += '</svg>\n'
 
 os.makedirs('public', exist_ok=True)
 with open('public/demo-terminal.svg', 'w') as f:
-    f.write('\n'.join(svg_parts))
-
+    f.write(svg)
 print("Created public/demo-terminal.svg")
