@@ -272,7 +272,7 @@ echo ""
 read -p "  ${BOLD}Apply consistency layer?${NC} ${DIM}(design-tokens.css) (Y/n)${NC} " APPLY_CONSISTENCY
 echo ""
 if [ "$APPLY_CONSISTENCY" != "n" ] && [ "$APPLY_CONSISTENCY" != "N" ]; then
-  CONSISTENCY_URL="https://raw.githubusercontent.com/karan-dhiver/design-forge/main/packages/design-forge-cli/consistency/design-tokens.css"
+  CONSISTENCY_URL="https://raw.githubusercontent.com/karan-dhiver/design-forge/main/consistency/design-tokens.css"
   echo -e "  ${YELLOW}→ Downloading design tokens...${NC}"
   mkdir -p consistency
   if curl -fsSL "$CONSISTENCY_URL" -o consistency/design-tokens.css 2>/dev/null; then

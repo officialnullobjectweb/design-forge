@@ -4,6 +4,7 @@ import { ExternalLink, Search } from 'lucide-react';
 import { useState, useMemo } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SiteIcon from '@/components/SiteIcon';
 import SelectDropdown from '@/components/SelectDropdown';
 import { templates, type Template } from '@/data/templates';
 import { techIcons, categoryIcons } from '@/data/tech-icons';
@@ -138,13 +139,11 @@ function TemplateCard({ template }: { template: Template }) {
               key={t}
               className="inline-flex items-center gap-1 rounded-md bg-zinc-50 px-2 py-0.5 text-[9px] font-medium text-zinc-600 ring-1 ring-zinc-200/50"
             >
-              {icon && (
-                <img
-                  src={`https://cdn.simpleicons.org/${icon.slug}/888888`}
-                  alt=""
-                  className="h-3 w-3"
-                />
-              )}
+              <SiteIcon
+                name={icon?.label || t}
+                size="xs"
+                fallback="hidden"
+              />
               {icon?.label ?? t}
             </span>
           );

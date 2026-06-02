@@ -4,7 +4,7 @@ import { useState, useMemo } from 'react';
 import { Search, ExternalLink, Package } from 'lucide-react';
 import { resources } from '@/data/resources';
 import { categories, type ResourceCategory } from '@/data/categories';
-import { brandIcons, getResourceIconUrl } from '@/lib/resource-icons';
+import SiteIcon from '@/components/SiteIcon';
 
 const allCategory = '__all__';
 
@@ -96,13 +96,7 @@ export default function ResourcesPage() {
 }
 
 function ResourceRow({ resource }: { resource: { id: string; name: string; description: string; url: string; category: ResourceCategory } }) {
-  const [imgFailed, setImgFailed] = useState(false);
-  const brand = brandIcons[resource.id];
   const categoryInfo = categories.find((c) => c.id === resource.category);
-
-  const imgSrc = brand
-    ? `https://cdn.simpleicons.org/${brand.slug}/${brand.color}`
-    : getResourceIconUrl(resource.url, resource.name);
 
   return (
     <a
@@ -111,21 +105,7 @@ function ResourceRow({ resource }: { resource: { id: string; name: string; descr
       rel="noopener noreferrer"
       className="group flex items-center gap-3 rounded-xl border border-zinc-100 bg-white px-4 py-3 transition-all hover:shadow-sm hover:border-zinc-200"
     >
-      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-zinc-50 ring-1 ring-zinc-200/50 overflow-hidden">
-        {!imgFailed ? (
-          <img
-            src={imgSrc}
-            alt={resource.name}
-            className="h-4 w-4 object-contain"
-            loading="lazy"
-            onError={() => setImgFailed(true)}
-          />
-        ) : (
-          <span className="text-[9px] font-bold text-zinc-500 uppercase">
-            {resource.name.slice(0, 2)}
-          </span>
-        )}
-      </div>
+      <SiteIcon resourceId={resource.id} name={resource.name} url={resource.url} />
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2">
           <span className="text-sm font-medium text-zinc-900 truncate">{resource.name}</span>

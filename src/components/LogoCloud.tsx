@@ -3,11 +3,16 @@
 import { useState } from 'react';
 import { tools } from '@/data/logos';
 
-function LogoTile({ name, slug, color }: { name: string; slug: string; color: string }) {
+function LogoTile({ name, slug, color, url }: { name: string; slug: string; color: string; url: string }) {
   const [failed, setFailed] = useState(false);
 
   return (
-    <div className="inline-flex shrink-0 items-center gap-2 rounded-xl border border-zinc-100 bg-white/80 px-3 py-2 shadow-sm backdrop-blur-sm">
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex shrink-0 items-center gap-2 rounded-xl border border-zinc-100 bg-white/80 px-3 py-2 shadow-sm backdrop-blur-sm transition-all hover:bg-white hover:shadow-md hover:-translate-y-0.5"
+    >
       {!failed ? (
         <img
           src={`https://cdn.simpleicons.org/${slug}/${color}`}
@@ -22,7 +27,7 @@ function LogoTile({ name, slug, color }: { name: string; slug: string; color: st
         </span>
       )}
       <span className="whitespace-nowrap text-[10px] font-medium text-zinc-600 sm:text-xs">{name}</span>
-    </div>
+    </a>
   );
 }
 
@@ -45,7 +50,7 @@ function MarqueeRow({
       }}
     >
       {[...row, ...row].map((tool, i) => (
-        <LogoTile key={`${tool.slug}-${i}`} {...tool} />
+        <LogoTile key={`${tool.slug}-${i}`} name={tool.name} slug={tool.slug} color={tool.color} url={tool.url} />
       ))}
       <style jsx>{`
         @keyframes marquee-forward {

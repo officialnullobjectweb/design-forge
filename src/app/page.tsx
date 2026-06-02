@@ -89,7 +89,7 @@ const steps = [
   },
   {
     step: '02',
-    title: 'DesignForge Picks the Packages',
+    title: 'Numb.Design Picks the Packages',
     description: 'Our CLI scans the requirement and installs only what\'s needed. shadcn/ui for components? Framer Motion for animations? Geist for fonts? Done. The rest stays out.',
     gradient: 'from-blue-500 to-cyan-600',
   },

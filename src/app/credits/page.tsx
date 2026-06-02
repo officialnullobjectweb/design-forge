@@ -1,87 +1,44 @@
-'use client';
+'use client'
 
-import { useState, useCallback } from 'react';
-import { ExternalLink, Search, ChevronDown, ChevronRight } from 'lucide-react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { resources } from '@/data/resources';
-import { categories } from '@/data/categories';
-import { brandIcons, getResourceIconUrl } from '@/lib/resource-icons';
-import { cn } from '@/lib/utils';
+import { useState } from 'react'
+import { ExternalLink, Search, ChevronDown, ChevronRight } from 'lucide-react'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import SiteIcon from '@/components/SiteIcon'
+import { resources } from '@/data/resources'
+import { categories } from '@/data/categories'
+import { brandIcons } from '@/lib/resource-icons'
 
-const resourcesByCategory: Record<string, typeof resources> = {};
+const resourcesByCategory: Record<string, typeof resources> = {}
 for (const cat of categories) {
   resourcesByCategory[cat.id] = resources
     .filter(r => r.category === cat.id)
     .sort((a, b) => {
-      const aHas = a.id in brandIcons ? 1 : 0;
-      const bHas = b.id in brandIcons ? 1 : 0;
-      if (aHas !== bHas) return bHas - aHas;
-      return a.name.localeCompare(b.name);
-    });
-}
-
-function LogoRow({ name, url, description, brand, faviconUrl }: {
-  name: string; url: string; description: string;
-  brand: { slug: string; color: string } | undefined;
-  faviconUrl: string;
-}) {
-  const [useSimpleIcon, setUseSimpleIcon] = useState(true);
-  const [useFavicon, setUseFavicon] = useState(true);
-
-  return (
-    <a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center gap-3 px-4 py-2.5 hover:bg-zinc-50 transition-colors border-b border-zinc-50 last:border-0"
-    >
-      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-zinc-50 ring-1 ring-zinc-100 overflow-hidden">
-        {brand && useSimpleIcon ? (
-          <img
-            src={`https://cdn.simpleicons.org/${brand.slug}/${brand.color}`}
-            alt={name}
-            className="h-4 w-4"
-            onError={() => setUseSimpleIcon(false)}
-          />
-        ) : useFavicon && faviconUrl ? (
-          <img
-            src={faviconUrl}
-            alt={name}
-            className="h-4 w-4"
-            onError={() => setUseFavicon(false)}
-          />
-        ) : (
-          <span className="text-[9px] font-bold text-zinc-400 uppercase">{name[0]}</span>
-        )}
-      </div>
-      <div className="min-w-0 flex-1">
-        <div className="text-sm font-medium text-zinc-800 truncate">{name}</div>
-        <div className="text-xs text-zinc-400 truncate mt-0.5">{description}</div>
-      </div>
-      <ExternalLink className="h-3.5 w-3.5 shrink-0 text-zinc-300" />
-    </a>
-  );
+      const aHas = a.id in brandIcons ? 1 : 0
+      const bHas = b.id in brandIcons ? 1 : 0
+      if (aHas !== bHas) return bHas - aHas
+      return a.name.localeCompare(b.name)
+    })
 }
 
 export default function CreditsPage() {
-  const [search, setSearch] = useState('');
-  const [expanded, setExpanded] = useState<Set<string>>(new Set(categories.map(c => c.id)));
+  const [search, setSearch] = useState('')
+  const [expanded, setExpanded] = useState<Set<string>>(new Set(categories.map(c => c.id)))
 
   const toggleCat = (id: string) => {
     setExpanded(prev => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id); else next.add(id);
-      return next;
-    });
-  };
+      const next = new Set(prev)
+      if (next.has(id)) next.delete(id); else next.add(id)
+      return next
+    })
+  }
 
-  const q = search.toLowerCase();
+  const q = search.toLowerCase()
   const visibleCats = categories.filter(cat => {
-    const catRes = resourcesByCategory[cat.id] || [];
-    if (!q) return catRes.length > 0;
-    return catRes.some(r => r.name.toLowerCase().includes(q) || r.description.toLowerCase().includes(q));
-  });
+    const catRes = resourcesByCategory[cat.id] || []
+    if (!q) return catRes.length > 0
+    return catRes.some(r => r.name.toLowerCase().includes(q) || r.description.toLowerCase().includes(q))
+  })
 
   return (
     <>
@@ -114,10 +71,10 @@ export default function CreditsPage() {
 
             <div className="space-y-4">
               {visibleCats.map(cat => {
-                const catRes = resourcesByCategory[cat.id] || [];
-                const matched = q ? catRes.filter(r => r.name.toLowerCase().includes(q) || r.description.toLowerCase().includes(q)) : catRes;
-                if (matched.length === 0) return null;
-                const isExpanded = expanded.has(cat.id);
+                const catRes = resourcesByCategory[cat.id] || []
+                const matched = q ? catRes.filter(r => r.name.toLowerCase().includes(q) || r.description.toLowerCase().includes(q)) : catRes
+                if (matched.length === 0) return null
+                const isExpanded = expanded.has(cat.id)
 
                 return (
                   <div key={cat.id} className="rounded-2xl border border-zinc-100 bg-white overflow-hidden">
@@ -132,19 +89,26 @@ export default function CreditsPage() {
 
                     {isExpanded && (
                       <div className="border-t border-zinc-50">
-                        {matched.map(r => {
-                          const brand = brandIcons[r.id];
-                          const faviconUrl = getResourceIconUrl(r.url, r.name);
-                          const [logoErr, setLogoErr] = useState(false);
-                          const [faviconErr, setFaviconErr] = useState(false);
-                          return (
-                            <LogoRow key={r.id} name={r.name} url={r.url} description={r.description} brand={brand} faviconUrl={faviconUrl} />
-                          );
-                        })}
+                        {matched.map(r => (
+                          <a
+                            key={r.id}
+                            href={r.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-3 px-4 py-2.5 hover:bg-zinc-50 transition-colors border-b border-zinc-50 last:border-0"
+                          >
+                            <SiteIcon resourceId={r.id} name={r.name} url={r.url} size="sm" />
+                            <div className="min-w-0 flex-1">
+                              <div className="text-sm font-medium text-zinc-800 truncate">{r.name}</div>
+                              <div className="text-xs text-zinc-400 truncate mt-0.5">{r.description}</div>
+                            </div>
+                            <ExternalLink className="h-3.5 w-3.5 shrink-0 text-zinc-300" />
+                          </a>
+                        ))}
                       </div>
                     )}
                   </div>
-                );
+                )
               })}
             </div>
 
@@ -158,5 +122,5 @@ export default function CreditsPage() {
       </main>
       <Footer />
     </>
-  );
+  )
 }

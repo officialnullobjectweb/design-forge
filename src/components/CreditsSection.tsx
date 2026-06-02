@@ -1,6 +1,6 @@
 'use client';
 
-import { ExternalLink } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const builtWith = [
   { name: 'Next.js', slug: 'nextdotjs', color: '000000', url: 'https://nextjs.org', desc: 'React framework' },
@@ -16,7 +16,13 @@ const builtWith = [
 export default function CreditsSection() {
   return (
     <section id="credits" className="scroll-mt-24 px-4 py-24 sm:px-6 lg:px-6">
-      <div className="mx-auto max-w-4xl text-center">
+      <motion.div
+        className="mx-auto max-w-4xl text-center"
+        initial={{ opacity: 1, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+      >
         <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-rose-50 px-3.5 py-1 text-xs font-medium text-rose-700 ring-1 ring-rose-200/50">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
@@ -33,13 +39,19 @@ export default function CreditsSection() {
         </p>
 
         <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {builtWith.map((tool) => (
-            <a
+          {builtWith.map((tool, idx) => (
+            <motion.a
               key={tool.slug}
               href={tool.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-3 rounded-xl border border-zinc-100 bg-white px-4 py-3.5 text-left transition-all hover:border-zinc-200 hover:shadow-sm hover:-translate-y-0.5"
+              initial={{ opacity: 1, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: idx * 0.06, ease: 'easeOut' }}
+              className="group flex items-center gap-3 rounded-xl border border-zinc-100 bg-white px-4 py-3.5 text-left transition-all hover:border-zinc-200 hover:shadow-md hover:-translate-y-1"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
               <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-zinc-50 ring-1 ring-zinc-200/50">
                 <img
@@ -49,13 +61,12 @@ export default function CreditsSection() {
                 />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-sm font-medium text-zinc-900 group-hover:text-brand-600 transition-colors">
+                <p className="text-sm font-semibold text-zinc-900 group-hover:text-brand-600 transition-colors">
                   {tool.name}
                 </p>
                 <p className="truncate text-xs text-zinc-400">{tool.desc}</p>
               </div>
-              <ExternalLink className="h-3.5 w-3.5 shrink-0 text-zinc-300 group-hover:text-zinc-500 transition-colors" />
-            </a>
+            </motion.a>
           ))}
         </div>
 
@@ -67,7 +78,7 @@ export default function CreditsSection() {
             resource and wish to have it removed, please open an issue on our GitHub repository.
           </p>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

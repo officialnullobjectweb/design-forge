@@ -1,8 +1,12 @@
 'use client';
 
+import { useState } from 'react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 import type { CategoryInfo, Resource } from '@/data/categories';
 import ResourceCard from './ResourceCard';
 import { brandIcons } from '@/lib/resource-icons';
+
+const INITIAL_VISIBLE = 4;
 
 function sortResources(resources: Resource[]): Resource[] {
   return [...resources].sort((a, b) => {
@@ -20,7 +24,10 @@ export default function CategorySection({
   category: CategoryInfo;
   resources: Resource[];
 }) {
+  const [showAll, setShowAll] = useState(false);
   const sorted = sortResources(resources);
+  const visible = showAll ? sorted : sorted.slice(0, INITIAL_VISIBLE);
+  const hasMore = sorted.length > INITIAL_VISIBLE;
 
   return (
     <section id={category.id} className="scroll-mt-24 px-4 sm:px-6 lg:px-6">
@@ -38,13 +45,28 @@ export default function CategorySection({
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {sorted.map((resource) => (
+          {visible.map((resource) => (
             <ResourceCard
               key={resource.id}
               resource={resource}
             />
           ))}
         </div>
+
+        {hasMore && (
+          <div className="mt-6 flex justify-center">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="inline-flex items-center gap-2 rounded-xl border border-zinc-200 bg-white px-5 py-2.5 text-sm font-medium text-zinc-600 shadow-sm transition-all hover:bg-zinc-50 hover:shadow-md hover:text-zinc-900"
+            >
+              {showAll ? (
+                <>Show less <ChevronUp className="h-4 w-4" /></>
+              ) : (
+                <>Show all {sorted.length} packages <ChevronDown className="h-4 w-4" /></>
+              )}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

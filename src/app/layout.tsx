@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DesignForge — AI-Powered Frontend Builder. Zero Bloat. Instant Setup.",
+  title: "Numb.Design — AI-Powered Frontend Builder. Zero Bloat. Instant Setup.",
   description:
-    "Tell your AI agent what you want to build. DesignForge installs only the packages you need — nothing extra. Premium frontends in 5 minutes from 100% free resources.",
+    "Tell your AI agent what you want to build. Numb.Design installs only the packages you need — nothing extra. Premium frontends in 5 minutes from 100% free resources.",
   keywords: [
     "frontend builder", "ai frontend agent", "npm frontend package",
     "react component installer", "tailwind css", "framer motion",
@@ -25,15 +25,15 @@ export const metadata: Metadata = {
     "free ui components", "open source design",
   ],
   openGraph: {
-    title: "DesignForge — AI-Powered Frontend Builder",
+    title: "Numb.Design — AI-Powered Frontend Builder",
     description: "Tell your AI agent what to build. Installs only what you need. Premium frontends in 5 minutes.",
     type: "website",
-    siteName: "DesignForge",
+    siteName: "Numb.Design",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "DesignForge — AI-Powered Frontend Builder",
+    title: "Numb.Design — AI-Powered Frontend Builder",
     description: "Tell your AI agent what to build. Installs only what you need. Premium frontends in 5 minutes.",
   },
   robots: {
@@ -58,11 +58,11 @@ export default function RootLayout({
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: 'DesignForge',
+    name: 'Numb.Design',
     applicationCategory: 'DeveloperApplication',
     operatingSystem: 'macOS, Windows, Linux',
     description: 'AI-powered frontend builder that installs only the packages you need via a single NPM command. No bloat, no conflicts, premium results.',
-    url: 'https://design-forge.vercel.app',
+    url: 'https://numb.design',
     offers: {
       '@type': 'Offer',
       price: '0',
@@ -70,7 +70,7 @@ export default function RootLayout({
     },
     author: {
       '@type': 'Organization',
-      name: 'DesignForge',
+      name: 'Numb.Design',
     },
   };
 
@@ -82,7 +82,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-white text-zinc-900 font-sans">
+      <body className={`${geistSans.variable} ${geistMono.variable} min-h-full flex flex-col bg-white text-zinc-900 font-sans`}>
         {children}
       </body>
     </html>

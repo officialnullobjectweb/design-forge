@@ -37,10 +37,7 @@ export default function Header() {
                 </svg>
               </div>
               <span className="text-sm font-bold tracking-tight text-zinc-900 hidden sm:inline">
-                Design<span className="text-brand-600">Forge</span>
-              </span>
-              <span className="hidden lg:inline-flex items-center gap-1 rounded-full bg-brand-50 px-2 py-0.5 text-[10px] font-medium text-brand-600 ring-1 ring-brand-200/50">
-                beta
+                Numb.<span className="text-brand-600">Design</span>
               </span>
             </a>
 

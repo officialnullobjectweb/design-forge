@@ -12,7 +12,7 @@ const stats = [
 ];
 
 const containerVariants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   visible: {
     opacity: 1,
     transition: { staggerChildren: 0.08 },
@@ -20,7 +20,7 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 1, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
@@ -82,7 +82,7 @@ export default function HeroSection() {
 
         <motion.div variants={itemVariants} className="mx-auto mt-6 max-w-2xl text-center">
           <p className="text-base leading-7 text-zinc-500 sm:text-lg sm:leading-8">
-            A single NPM command. Your AI agent describes the output — DesignForge picks the exact
+            A single NPM command. Your AI agent describes the output — Numb.Design picks the exact
             packages, nothing more. No bloat, no conflicts, no unused dependencies.
           </p>
           <p className="mt-1 text-sm text-zinc-400">
@@ -111,7 +111,7 @@ export default function HeroSection() {
             Browse Packages
           </motion.a>
           <motion.a
-            href="https://www.npmjs.com/package/design-forge-cli"
+            href="https://www.npmjs.com/package/numb-design"
             target="_blank"
             className="inline-flex h-12 items-center gap-2 rounded-xl border border-zinc-200 bg-white px-7 text-sm font-medium text-zinc-700 shadow-sm transition-all hover:bg-zinc-50 hover:shadow-md"
             whileHover={{ scale: 1.02 }}
@@ -138,7 +138,7 @@ export default function HeroSection() {
 
       <motion.div
         className="mx-auto mt-16 max-w-5xl"
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 1, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.8, ease: 'easeOut' }}

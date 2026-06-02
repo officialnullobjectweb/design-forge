@@ -68,7 +68,7 @@ export default function CLISection() {
     <section id="cli" className="scroll-mt-24 px-4 py-24 sm:px-6 lg:px-6">
       <motion.div
         className="mx-auto max-w-5xl"
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 1, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
@@ -76,7 +76,7 @@ export default function CLISection() {
         <div className="mx-auto max-w-2xl text-center">
           <motion.div
             className="mb-4 inline-flex items-center gap-2 rounded-full bg-violet-50 px-3.5 py-1 text-xs font-medium text-violet-700 ring-1 ring-violet-200/50"
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 1, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
           >
@@ -85,7 +85,7 @@ export default function CLISection() {
           </motion.div>
           <motion.h2
             className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
@@ -94,7 +94,7 @@ export default function CLISection() {
           </motion.h2>
           <motion.p
             className="mt-3 text-sm text-zinc-500"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
@@ -106,7 +106,7 @@ export default function CLISection() {
         <div className="mt-12 grid gap-8 lg:grid-cols-2">
           <motion.div
             className="rounded-2xl border border-zinc-200 bg-zinc-950 shadow-xl overflow-hidden"
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 1, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -156,7 +156,7 @@ export default function CLISection() {
 
           <motion.div
             className="flex flex-col gap-3"
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 1, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -188,7 +188,7 @@ export default function CLISection() {
               <motion.div
                 key={cmd.label}
                 className="group flex items-center justify-between rounded-xl border border-zinc-200 bg-white px-4 py-3.5 transition-all hover:border-violet-200 hover:shadow-sm"
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 1, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 * i }}

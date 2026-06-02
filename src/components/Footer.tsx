@@ -12,7 +12,7 @@ export default function Footer() {
               <Sparkles className="h-3.5 w-3.5 text-white" />
             </div>
             <span className="text-xs font-bold tracking-tight text-zinc-700">
-              Design<span className="text-brand-600">Forge</span>
+              Numb.<span className="text-brand-600">Design</span>
             </span>
           </div>
 
@@ -47,8 +47,8 @@ export default function Footer() {
           </div>
         </div>
         <p className="mt-6 text-center text-[10px] text-zinc-300">
-          © {new Date().getFullYear()} DesignForge. All resources belong to their respective
-          creators. This is a free curation project.
+          © {new Date().getFullYear()} Numb.Design. All resources belong to their respective
+            creators. This is a free curation project.
         </p>
       </div>
     </footer>

@@ -415,86 +415,157 @@ function DesignPreview({ type, style }: { type: ProjectType; style: Style }) {
           </div>
         </div>
       ) : (
-        <div className="flex justify-center py-3">
-          <div className="relative" style={{
-            width: '280px',
-            padding: '10px',
-            borderRadius: '50px',
-            background: 'linear-gradient(135deg, #c8c9cb 0%, #8e8e93 25%, #636366 50%, #8e8e93 75%, #c8c9cb 100%)',
-            boxShadow: '0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,0,0,0.2), inset 0 0 0 1px rgba(255,255,255,0.08)',
-          }}>
+        <div className="flex justify-center py-4">
+          <div className="relative" style={{ zIndex: 1 }}>
             <div style={{
-              borderRadius: '40px',
-              overflow: 'hidden',
-              background: '#000',
+              position: 'absolute', bottom: '-16px', left: '8%', right: '8%',
+              height: '24px',
+              background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.25), transparent)',
+              filter: 'blur(8px)',
+            }} />
+            <div style={{
+              position: 'absolute', top: '50%', left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: '340px', height: '520px',
+              background: 'radial-gradient(ellipse, rgba(255,255,255,0.04), transparent 60%)',
+              pointerEvents: 'none',
+            }} />
+            <div style={{
+              width: '266px',
+              padding: '7px',
+              borderRadius: '48px',
+              background: `
+                linear-gradient(180deg, #e4e4e7 0%, #a1a1aa 18%, #71717a 40%, #52525b 50%, #71717a 65%, #8e8e93 82%, #d4d4d8 100%)
+              `,
+              boxShadow: `
+                0 30px 80px rgba(0,0,0,0.45),
+                0 4px 20px rgba(0,0,0,0.2),
+                0 0 0 1px rgba(0,0,0,0.25),
+                inset 0 0 0 1px rgba(255,255,255,0.12)
+              `,
               position: 'relative',
             }}>
-              <div className="overflow-y-auto" style={{
-                maxHeight: '480px',
-                background: t.bg,
-                scrollbarWidth: 'none',
-                msOverflowStyle: 'none',
+              <div style={{
+                position: 'absolute', top: '7px', left: '7px', right: '7px', bottom: '7px',
+                borderRadius: '41px',
+                boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.12)',
+                pointerEvents: 'none',
+                zIndex: 30,
+              }} />
+              <div style={{
+                borderRadius: '41px',
+                overflow: 'hidden',
+                background: '#000',
+                position: 'relative',
               }}>
-                <style>{`.overflow-y-auto::-webkit-scrollbar { display: none }`}</style>
-                {previews[type]}
+                <div className="overflow-y-auto" style={{
+                  maxHeight: '460px',
+                  background: t.bg,
+                  scrollbarWidth: 'none',
+                  msOverflowStyle: 'none',
+                }}>
+                  <style>{`.overflow-y-auto::-webkit-scrollbar { display: none }`}</style>
+                  {previews[type]}
+                </div>
+                <div style={{
+                  position: 'absolute', top: '7px', left: '50%',
+                  transform: 'translateX(-50%)',
+                  width: '74px', height: '18px',
+                  background: '#000',
+                  borderRadius: '11px',
+                  zIndex: 20,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px',
+                }}>
+                  <div style={{
+                    width: '5px', height: '5px',
+                    borderRadius: '50%',
+                    background: 'radial-gradient(circle, #1a1a2e, #0a0a0a)',
+                    border: '0.5px solid #222',
+                  }} />
+                  <div style={{ width: '3px', height: '3px', borderRadius: '50%', background: '#1a1a1a' }} />
+                </div>
+                <div style={{
+                  position: 'absolute', bottom: '5px', left: '50%',
+                  transform: 'translateX(-50%)',
+                  width: '86px', height: '3px',
+                  background: '#222',
+                  borderRadius: '2px',
+                  zIndex: 20,
+                }} />
+                <div style={{
+                  position: 'absolute', top: 0, left: 0, right: 0,
+                  height: '40%',
+                  background: 'linear-gradient(to bottom, rgba(255,255,255,0.04), transparent 80%)',
+                  borderRadius: '41px 41px 0 0',
+                  pointerEvents: 'none',
+                  zIndex: 15,
+                }} />
+                <div style={{
+                  position: 'absolute', top: '-15%', left: '-15%',
+                  width: '55%', height: '25%',
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 60%)',
+                  transform: 'rotate(-25deg)',
+                  pointerEvents: 'none',
+                  zIndex: 16,
+                }} />
+                <div style={{
+                  position: 'absolute', bottom: 0, left: 0, right: 0,
+                  height: '12%',
+                  background: 'linear-gradient(to top, rgba(0,0,0,0.12), transparent)',
+                  borderRadius: '0 0 41px 41px',
+                  pointerEvents: 'none',
+                  zIndex: 15,
+                }} />
               </div>
               <div style={{
-                position: 'absolute', top: '8px', left: '50%',
-                transform: 'translateX(-50%)',
-                width: '80px', height: '20px',
-                background: '#000',
-                borderRadius: '12px',
-                zIndex: 20,
+                position: 'absolute', bottom: '10px', left: '50%', transform: 'translateX(-50%)',
+                display: 'flex', gap: '2px',
+              }}>
+                {Array.from({length: 5}).map((_, i) => (
+                  <div key={i} style={{ width: '2.5px', height: '2.5px', borderRadius: '50%', background: 'rgba(255,255,255,0.15)' }} />
+                ))}
+              </div>
+              <div style={{
+                position: 'absolute', left: '-3px', top: '70px',
+                width: '3px', height: '12px',
+                background: 'linear-gradient(to bottom, #a1a1aa, #71717a, #a1a1aa)',
+                borderRadius: '1px 0 0 1px',
+                boxShadow: '-0.5px 0 2px rgba(0,0,0,0.15)',
               }} />
               <div style={{
-                position: 'absolute', bottom: '6px', left: '50%',
-                transform: 'translateX(-50%)',
-                width: '90px', height: '3px',
-                background: '#222',
-                borderRadius: '2px',
-                zIndex: 20,
+                position: 'absolute', left: '-3px', top: '96px',
+                width: '3px', height: '24px',
+                background: 'linear-gradient(to bottom, #a1a1aa, #71717a, #a1a1aa)',
+                borderRadius: '1px 0 0 1px',
+                boxShadow: '-0.5px 0 2px rgba(0,0,0,0.15)',
               }} />
               <div style={{
-                position: 'absolute', top: 0, left: 0, right: 0,
-                height: '45%',
-                background: 'linear-gradient(to bottom, rgba(255,255,255,0.05), transparent 80%)',
-                borderRadius: '40px 40px 0 0',
-                pointerEvents: 'none',
-                zIndex: 15,
+                position: 'absolute', left: '-3px', top: '124px',
+                width: '3px', height: '24px',
+                background: 'linear-gradient(to bottom, #a1a1aa, #71717a, #a1a1aa)',
+                borderRadius: '1px 0 0 1px',
+                boxShadow: '-0.5px 0 2px rgba(0,0,0,0.15)',
               }} />
               <div style={{
-                position: 'absolute', bottom: 0, left: 0, right: 0,
-                height: '15%',
-                background: 'linear-gradient(to top, rgba(0,0,0,0.15), transparent)',
-                borderRadius: '0 0 40px 40px',
-                pointerEvents: 'none',
-                zIndex: 15,
+                position: 'absolute', right: '-3px', top: '112px',
+                width: '3px', height: '32px',
+                background: 'linear-gradient(to bottom, #a1a1aa, #71717a, #a1a1aa)',
+                borderRadius: '0 1px 1px 0',
+                boxShadow: '0.5px 0 2px rgba(0,0,0,0.15)',
+              }} />
+              <div style={{
+                position: 'absolute', top: '7px', left: '30%', right: '30%',
+                height: '0.5px',
+                background: 'rgba(0,0,0,0.08)',
+                zIndex: 35,
+              }} />
+              <div style={{
+                position: 'absolute', bottom: '7px', left: '30%', right: '30%',
+                height: '0.5px',
+                background: 'rgba(0,0,0,0.08)',
+                zIndex: 35,
               }} />
             </div>
-            <div style={{
-              position: 'absolute', left: '-3px', top: '85px',
-              width: '3px', height: '16px',
-              background: 'linear-gradient(to bottom, #a1a1aa, #71717a)',
-              borderRadius: '1px 0 0 1px',
-            }} />
-            <div style={{
-              position: 'absolute', left: '-3px', top: '115px',
-              width: '3px', height: '28px',
-              background: 'linear-gradient(to bottom, #a1a1aa, #71717a)',
-              borderRadius: '1px 0 0 1px',
-            }} />
-            <div style={{
-              position: 'absolute', left: '-3px', top: '148px',
-              width: '3px', height: '28px',
-              background: 'linear-gradient(to bottom, #a1a1aa, #71717a)',
-              borderRadius: '1px 0 0 1px',
-            }} />
-            <div style={{
-              position: 'absolute', right: '-3px', top: '130px',
-              width: '3px', height: '36px',
-              background: 'linear-gradient(to bottom, #a1a1aa, #71717a)',
-              borderRadius: '0 1px 1px 0',
-            }} />
           </div>
         </div>
       )}
