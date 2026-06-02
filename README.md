@@ -27,7 +27,7 @@ We wanted a system where:
 
 ---
 
-## How We Approached It (Surface Level)
+## How We Approached It
 
 We didn't build yet another component library. The web already has amazing free ones — shadcn/ui, Magic UI, Aceternity UI, Radix UI, and hundreds more. What was missing was a **discovery and orchestration layer** on top of them all.
 
@@ -444,8 +444,8 @@ MIT
 
 ## Links
 
-- **Website:** [https://numb.design](https://numb.design)
-- **Documentation:** [https://numb.design/docs](https://numb.design/docs)
+- **Website:** [https://numb.design](https://numbdesign.vercel.app)
+- **Documentation:** [https://numb.design/docs](https://numbdesign.vercel.app/docs)
 - **GitHub:** [https://github.com/officialnullobjectweb/Numb.design](https://github.com/officialnullobjectweb/Numb.design)
 - **npm:** [https://www.npmjs.com/package/numb-design](https://www.npmjs.com/package/numb-design)
 - **Interactive Wizard:** [https://numb.design/wizard](https://numb.design/wizard)
