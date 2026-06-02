@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { ArrowDown, Wand2, Terminal, Package, Sparkles } from 'lucide-react';
 import LogoCloud from './LogoCloud';
+import FluidBackground from './FluidBackground';
 
 const stats = [
   { number: '100+', label: 'Free Packages' },
@@ -30,66 +31,10 @@ const itemVariants = {
 export default function HeroSection() {
   return (
     <section className="relative overflow-hidden px-4 pt-28 pb-16 sm:px-6 sm:pt-36 lg:px-6">
-      <div className="absolute inset-0 -z-10">
-        <motion.div
-          className="absolute top-[-20%] left-[-10%] h-[70%] w-[60%] rounded-full bg-gradient-to-br from-violet-300/25 via-violet-400/15 to-transparent blur-3xl"
-          animate={{
-            x: [0, 40, -30, 20, 0],
-            y: [0, -30, 20, -10, 0],
-            scale: [1, 1.08, 0.95, 1.05, 1],
-          }}
-          transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute bottom-[-20%] right-[-10%] h-[60%] w-[55%] rounded-full bg-gradient-to-bl from-emerald-200/25 via-teal-300/15 to-transparent blur-3xl"
-          animate={{
-            x: [0, -50, 30, -20, 0],
-            y: [0, 40, -20, 30, 0],
-            scale: [1, 1.12, 0.98, 1.06, 1],
-          }}
-          transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute top-[35%] right-[15%] h-[35%] w-[30%] rounded-full bg-gradient-to-r from-amber-200/15 via-orange-300/10 to-transparent blur-3xl"
-          animate={{
-            x: [0, 30, -40, 15, 0],
-            y: [0, -20, 35, -15, 0],
-            scale: [1, 1.15, 0.92, 1.08, 1],
-          }}
-          transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute top-[10%] right-[30%] h-[20%] w-[20%] rounded-full bg-gradient-to-tr from-violet-200/20 via-fuchsia-300/10 to-transparent blur-3xl"
-          animate={{
-            x: [0, -25, 35, -15, 0],
-            y: [0, 25, -15, 20, 0],
-            scale: [1, 0.9, 1.1, 0.95, 1],
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute bottom-[30%] left-[20%] h-[25%] w-[25%] rounded-full bg-gradient-to-tr from-emerald-200/15 via-cyan-300/10 to-transparent blur-3xl"
-          animate={{
-            x: [0, 35, -25, 20, 0],
-            y: [0, -35, 20, -25, 0],
-            scale: [1, 1.05, 0.9, 1.1, 1],
-          }}
-          transition={{ duration: 28, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute top-[50%] left-[40%] h-[15%] w-[15%] rounded-full bg-gradient-to-r from-violet-300/15 via-purple-400/10 to-transparent blur-3xl"
-          animate={{
-            x: [0, -20, 25, -10, 0],
-            y: [0, 15, -25, 10, 0],
-            scale: [1, 1.1, 0.95, 1.05, 1],
-          }}
-          transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-50 via-white to-zinc-50/50" />
-      </div>
+      <FluidBackground />
 
       <motion.div
-        className="mx-auto max-w-4xl"
+        className="mx-auto max-w-4xl relative"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -176,11 +121,11 @@ export default function HeroSection() {
       </motion.div>
 
       <motion.div
-        className="mx-auto mt-16 max-w-5xl"
+        className="mx-auto mt-16 max-w-5xl relative"
         initial={{ opacity: 1, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-100px' }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
+        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className="mb-6 text-center">
           <div className="inline-flex items-center gap-2 rounded-full bg-zinc-50 px-4 py-1.5 text-xs font-medium text-zinc-500 ring-1 ring-zinc-200/50">
