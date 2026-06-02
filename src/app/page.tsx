@@ -1,16 +1,18 @@
+import dynamic from 'next/dynamic';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
-import CategorySection from '@/components/CategorySection';
-import CLISection from '@/components/CLISection';
-import CreditsSection from '@/components/CreditsSection';
-import Footer from '@/components/Footer';
-import BackToTop from '@/components/BackToTop';
 import AnimatedSection from '@/components/AnimatedSection';
 import AnimatedCard from '@/components/AnimatedCard';
 import { categories } from '@/data/categories';
 import { resources } from '@/data/resources';
 import { templates } from '@/data/templates';
 import { skills } from '@/data/skills';
+
+const CategorySection = dynamic(() => import('@/components/CategorySection'));
+const CLISection = dynamic(() => import('@/components/CLISection'));
+const CreditsSection = dynamic(() => import('@/components/CreditsSection'));
+const Footer = dynamic(() => import('@/components/Footer'));
+const BackToTop = dynamic(() => import('@/components/BackToTop'));
 
 const features = [
   {
@@ -84,7 +86,7 @@ const steps = [
   {
     step: '01',
     title: 'Tell Your AI Agent What You Need',
-    description: '\"Build me a premium landing page.\" That\'s it. Your AI agent analyzes your requirement and determines the exact packages needed — nothing more, nothing less.',
+    description: '"Build me a premium landing page." That\'s it. Your AI agent analyzes your requirement and determines the exact packages needed — nothing more, nothing less.',
     gradient: 'from-violet-500 to-indigo-600',
     href: '/wizard',
   },
@@ -120,7 +122,7 @@ export default function Home() {
                 Frontend Setup Is Still Too Hard
               </h2>
               <p className="mt-3 text-sm text-zinc-500">
-                You shouldn\'t need to hand-pick packages, read compatibility docs, and clean up
+                You shouldn't need to hand-pick packages, read compatibility docs, and clean up
                 abandoned dependencies just to build a UI. Your AI agent should handle all of that.
               </p>
             </div>
@@ -287,7 +289,7 @@ export default function Home() {
                 The Package Catalog
               </h2>
               <p className="mt-3 text-sm text-zinc-500">
-                Every package hand-curated. Your AI agent browses and picks only what\'s needed for your build.
+                Every package hand-curated. Your AI agent browses and picks only what's needed for your build.
               </p>
             </div>
 
