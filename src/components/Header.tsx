@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 const navLinks = [
-  { label: 'Resources', href: '/resources' },
+  { label: 'Docs', href: '/docs' },
   { label: 'Templates', href: '/templates' },
   { label: 'Skills', href: '/skills' },
   { label: 'Wizard', href: '/wizard' },
@@ -86,7 +86,7 @@ export default function Header() {
                 );
               })}
               <a
-                href="https://github.com/officialnullobjectweb/design-forge"
+                href="https://github.com/officialnullobjectweb/Numb.design"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="ml-2 inline-flex items-center gap-1.5 rounded-lg bg-zinc-900 px-4 py-2 text-xs font-medium text-white transition-all hover:bg-zinc-800"
@@ -120,7 +120,7 @@ export default function Header() {
               </a>
             ))}
             <a
-              href="https://github.com/officialnullobjectweb/design-forge"
+              href="https://github.com/officialnullobjectweb/Numb.design"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-lg bg-zinc-900 px-4 py-2.5 text-center text-sm font-medium text-white"

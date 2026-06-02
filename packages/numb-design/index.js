@@ -1,5 +1,3 @@
-const fs = require('fs');
-const path = require('path');
 const catalog = require('./resources/catalog.json');
 
 const RESOURCE_MAP = {
@@ -129,61 +127,8 @@ function analyzeProject(dir) {
   return recommendations;
 }
 
-function applyConsistency(dir) {
-  const src = path.join(__dirname, 'consistency', 'design-tokens.css');
-  const consistencyDir = path.join(dir, 'consistency');
-  const dest = path.join(consistencyDir, 'design-tokens.css');
-
-  try {
-    if (!fs.existsSync(src)) return { success: false, error: 'design-tokens.css not found in package' };
-    if (!fs.existsSync(consistencyDir)) fs.mkdirSync(consistencyDir, { recursive: true });
-    fs.copyFileSync(src, dest);
-    return { success: true, path: dest };
-  } catch (err) {
-    return { success: false, error: err.message };
-  }
-}
-
-const { PreviewGenerator } = require('./src/preview/generator');
-const { runWizard } = require('./src/wizard/index');
-const { BlueprintGenerator } = require('./src/blueprint/generator');
-const { ProjectGenerator } = require('./src/generator/project');
-const { DESIGN_STYLES } = require('./src/data/design-styles');
-const { MOTION_STYLES } = require('./src/data/motion');
-const { SHAPE_STYLES } = require('./src/data/shapes');
-const { TONE_STYLES } = require('./src/data/tone');
-const { TYPOGRAPHY_PAIRINGS } = require('./src/data/typography-pairings');
-const { DEPTH_STYLES } = require('./src/data/depth');
-const { COLOR_PRESETS } = require('./src/data/colors');
-const { PROJECT_TYPES } = require('./src/data/project-types');
-const { FEATURES, FEATURE_GROUPS } = require('./src/data/features');
-const { SECTIONS, SECTION_CATEGORIES } = require('./src/data/sections');
-const constitution = require('./src/constitution');
-const ucu = require('./src/ucu');
-
 module.exports = {
   generatePlan,
   analyzeProject,
-  applyConsistency,
-  PreviewGenerator,
-  runWizard,
-  BlueprintGenerator,
-  ProjectGenerator,
-  constitution,
-  ucu,
   resources: catalog,
-  data: {
-    DESIGN_STYLES,
-    MOTION_STYLES,
-    SHAPE_STYLES,
-    TONE_STYLES,
-    TYPOGRAPHY_PAIRINGS,
-    DEPTH_STYLES,
-    COLOR_PRESETS,
-    PROJECT_TYPES,
-    FEATURES,
-    FEATURE_GROUPS,
-    SECTIONS,
-    SECTION_CATEGORIES,
-  },
 };

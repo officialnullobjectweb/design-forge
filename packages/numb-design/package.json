@@ -1,48 +1,41 @@
 {
   "name": "numb-design",
   "version": "1.0.0",
-  "description": "Token-locked design constitution + 50+ UCU library. One command scaffolds a complete Numb.Design project. Every free resource in the catalog, pre-wired.",
+  "description": "AI-powered frontend toolkit. One command to discover, install, and manage design resources.",
   "bin": {
-    "numb": "bin/cli.js",
-    "create-numb-app": "bin/create-numb-app.js"
+    "numb": "bin/cli.js"
   },
   "main": "index.js",
   "files": [
     "bin/",
-    "src/",
     "index.js",
-    "templates/",
-    "tests/",
     "agent-skills/",
-    "consistency/",
     "resources/"
   ],
   "keywords": [
     "numb",
     "numb-design",
-    "design-system",
-    "tokens",
-    "clt",
-    "constitution",
-    "ucu",
+    "design-resources",
+    "frontend",
     "tailwind",
     "react",
     "nextjs",
+    "cli",
+    "ui-library",
     "ai-agents",
     "cursor",
     "claude-code",
     "copilot",
-    "vibe-coding",
-    "ui-library",
-    "component-library"
+    "shadcn-ui",
+    "framer-motion"
   ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/numbdesign/numb-design.git"
+    "url": "git+https://github.com/officialnullobjectweb/Numb.design.git"
   },
   "bugs": {
-    "url": "https://github.com/numbdesign/numb-design/issues"
+    "url": "https://github.com/officialnullobjectweb/Numb.design/issues"
   },
   "homepage": "https://numb.design",
   "publishConfig": {
@@ -52,10 +45,7 @@
     "node": ">=18.0.0"
   },
   "scripts": {
-    "test": "node tests/constitution.test.js && node tests/ucu.test.js && node tests/ucu-prod.test.js",
-    "test:constitution": "node tests/constitution.test.js",
-    "test:ucu": "node tests/ucu.test.js",
-    "test:ucu:prod": "node tests/ucu-prod.test.js"
+    "test": "echo \"No tests yet\" && exit 0"
   },
   "dependencies": {
     "@clack/prompts": "^0.9.1",
