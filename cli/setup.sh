@@ -269,21 +269,6 @@ if [ "$PROCEED" != "n" ] && [ "$PROCEED" != "N" ]; then
 fi
 echo ""
 
-read -p "  ${BOLD}Apply consistency layer?${NC} ${DIM}(design-tokens.css) (Y/n)${NC} " APPLY_CONSISTENCY
-echo ""
-if [ "$APPLY_CONSISTENCY" != "n" ] && [ "$APPLY_CONSISTENCY" != "N" ]; then
-  CONSISTENCY_URL="https://raw.githubusercontent.com/officialnullobjectweb/design-forge/main/consistency/design-tokens.css"
-  echo -e "  ${YELLOW}→ Downloading design tokens...${NC}"
-  mkdir -p consistency
-  if curl -fsSL "$CONSISTENCY_URL" -o consistency/design-tokens.css 2>/dev/null; then
-    echo -e "  ${GREEN}✓${NC} design-tokens.css written to ${CYAN}consistency/design-tokens.css${NC}"
-    echo -e "  ${DIM}  Include in your project:${NC}"
-    echo -e "    ${CYAN}@import "consistency/design-tokens.css";${NC}"
-    echo -e "    ${DIM}  or add ${YELLOW}data-df-normalize${NC} ${DIM}to your root element${NC}"
-  else
-    echo -e "  ${YELLOW}⚠ Could not fetch design tokens (no network?)${NC}"
-  fi
-fi
 echo ""
 
 echo -e "  ${MAGENTA}╔═══════════════════════════════════════════════════════════════╗${NC}"

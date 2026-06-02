@@ -29,7 +29,6 @@ This interactive wizard:
 2. Asks your style preferences (modern, minimal, dark, glassmorphic, playful, brutalist)
 3. Asks what features you need (animations, 3D, charts, forms, auth, icons, etc.)
 4. Generates an install plan with exact npm commands
-5. Optionally applies the consistency layer (design tokens)
 
 ### Resource Icons
 
