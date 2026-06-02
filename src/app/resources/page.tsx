@@ -5,6 +5,7 @@ import { Search, ExternalLink, Package } from 'lucide-react';
 import { resources } from '@/data/resources';
 import { categories, type ResourceCategory } from '@/data/categories';
 import SiteIcon from '@/components/SiteIcon';
+import Header from '@/components/Header';
 
 const allCategory = '__all__';
 
@@ -22,7 +23,8 @@ export default function ResourcesPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="border-b border-zinc-100">
+      <Header />
+      <div className="border-b border-zinc-100 pt-20">
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-6">
           <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-zinc-50 px-3.5 py-1 text-xs font-medium text-zinc-700 ring-1 ring-zinc-200/50">
             <Package className="h-3 w-3" /> {resources.length} packages
@@ -36,7 +38,7 @@ export default function ResourcesPage() {
         </div>
       </div>
 
-      <div className="sticky top-16 z-20 border-b border-zinc-100 bg-white/80 backdrop-blur-md">
+      <div className="border-b border-zinc-100 bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-6">
           <div className="flex flex-col gap-3 py-3 sm:flex-row sm:items-center">
             <div className="relative flex-1">
