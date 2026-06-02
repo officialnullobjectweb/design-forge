@@ -531,6 +531,57 @@ open https://numb.design" />
           </div>
         </div>
       </main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'What is Numb.Design?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Numb.Design is a free, open-source frontend toolkit. It provides a curated catalog of 500+ free design resources (UI components, icons, fonts, animations, templates) and a zero-bloat CLI that installs only the packages your project actually needs. Use it directly via npx numb-design init or through your AI coding agent.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How does the CLI avoid dependency bloat?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Instead of installing an opinionated starter with 50+ packages you may never use, Numb.Design asks what you are building and what features you need, then generates an install plan with exactly those packages. Run npx numb-design init to get started.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Is Numb.Design really 100% free?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Yes. Every resource in the catalog is free and open-source. There are no paid tiers, no premium plans, and no hidden charges. The entire project is MIT licensed.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Can AI agents use Numb.Design?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Yes. Numb.Design is built for AI-assisted development. AI agents like Claude Code, Cursor, and Copilot can read the README, understand the project structure, and execute CLI commands to add components, search resources, or scaffold new projects. The project files are designed to be agent-friendly.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'What kind of projects can I build with Numb.Design?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Landing pages, dashboards, e-commerce stores, portfolios, blogs, SaaS apps, and full web applications. The CLI supports styles like modern, minimal, dark, glassmorphic, playful, and brutalist.',
+                },
+              },
+            ],
+          }),
+        }}
+      />
       <Footer />
     </>
   );
