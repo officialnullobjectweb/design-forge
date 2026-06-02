@@ -40,6 +40,13 @@ html { scroll-behavior: smooth; }
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+@utility glass-dense {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 @utility gradient-text {
   background-clip: text;
   -webkit-background-clip: text;

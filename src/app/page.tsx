@@ -4,6 +4,7 @@ import CategorySection from '@/components/CategorySection';
 import CLISection from '@/components/CLISection';
 import CreditsSection from '@/components/CreditsSection';
 import Footer from '@/components/Footer';
+import BackToTop from '@/components/BackToTop';
 import AnimatedSection from '@/components/AnimatedSection';
 import AnimatedCard from '@/components/AnimatedCard';
 import { categories } from '@/data/categories';
@@ -309,6 +310,7 @@ export default function Home() {
         <CLISection />
         <CreditsSection />
       </main>
+      <BackToTop />
       <Footer />
     </>
   );
