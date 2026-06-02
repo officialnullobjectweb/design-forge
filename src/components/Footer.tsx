@@ -1,19 +1,14 @@
 'use client';
 
-import { GitFork, Heart, Sparkles } from 'lucide-react';
+import { GitFork, Heart } from 'lucide-react';
 
 export default function Footer() {
   return (
     <footer className="border-t border-zinc-100 bg-zinc-50/50 px-4 py-12 sm:px-6 lg:px-6">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-          <div className="flex items-center gap-2.5">
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-brand-500 to-brand-700">
-              <Sparkles className="h-3.5 w-3.5 text-white" />
-            </div>
-            <span className="text-xs font-bold tracking-tight text-zinc-700">
-              Numb.<span className="text-brand-600">Design</span>
-            </span>
+          <div className="flex items-center">
+            <img src="/logo.png" alt="Numb.Design" className="h-8 w-auto" />
           </div>
 
           <p className="flex items-center gap-1 text-xs text-zinc-400">
@@ -24,7 +19,7 @@ export default function Footer() {
 
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com/officialnullobjectweb/design-forge"
+              href="https://github.com/officialnullobjectweb/Numb.design"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-xs text-zinc-400 transition-colors hover:text-zinc-700"
