@@ -102,7 +102,7 @@ export default function HeroSection() {
             whileTap={{ scale: 0.98 }}
           >
             <Terminal className="h-4 w-4" />
-            npx design-forge-cli
+            npx numb-design init
           </motion.a>
         </motion.div>
 

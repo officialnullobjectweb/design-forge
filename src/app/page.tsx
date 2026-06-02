@@ -160,7 +160,7 @@ export default function Home() {
                 Three Steps from Idea to UI
               </h2>
               <p className="mt-3 text-sm text-zinc-500">
-                Your AI agent handles the discovery. DesignForge handles the installation.
+                Your AI agent handles the discovery. Numb.Design handles the installation.
                 You just tell it what to build.
               </p>
             </div>

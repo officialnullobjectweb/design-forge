@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# DesignForge — Interactive Project Setup Wizard
-# curl -fsSL https://design-forge-beta.vercel.app/cli/setup.sh | bash
+# Numb.Design — Interactive Project Setup Wizard
+# curl -fsSL https://numb.design/cli/setup.sh | bash
 set -euo pipefail
 
 trap 'echo -e "\n\n  \033[0;31m✗ Cancelled by user\033[0m\n"; exit 1' INT
@@ -25,8 +25,8 @@ echo -e "
   ${MAGENTA}║${NC}  ${BOLD}${WHITE}██║  ██║██████╔╝██║     ██║╚██████╔╝██║ ╚████║${NC}            ${MAGENTA}║${NC}
   ${MAGENTA}║${NC}  ${BOLD}${WHITE}╚═╝  ╚═╝╚═════╝ ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝${NC}            ${MAGENTA}║${NC}
   ${MAGENTA}║${NC}                                                    ${MAGENTA}║${NC}
-  ${MAGENTA}║${NC}  ${BOLD}${CYAN}  DesignForge${NC}  ${DIM}— Interactive Project Setup Wizard${NC}       ${MAGENTA}║${NC}
-  ${MAGENTA}║${NC}  ${DIM}  Aggregates the best free design resources${NC}              ${MAGENTA}║${NC}
+  ${MAGENTA}║${NC}  ${BOLD}${CYAN}  Numb.Design${NC}     ${DIM}— Interactive Project Setup Wizard${NC}       ${MAGENTA}║${NC}
+  ${MAGENTA}║${NC}  ${DIM}  AI-powered frontend builder — zero bloat${NC}              ${MAGENTA}║${NC}
   ${MAGENTA}║${NC}  ${DIM}  for your project.${NC}                                      ${MAGENTA}║${NC}
   ${MAGENTA}╚═══════════════════════════════════════════════════════════════╝${NC}
 "
@@ -272,7 +272,7 @@ echo ""
 read -p "  ${BOLD}Apply consistency layer?${NC} ${DIM}(design-tokens.css) (Y/n)${NC} " APPLY_CONSISTENCY
 echo ""
 if [ "$APPLY_CONSISTENCY" != "n" ] && [ "$APPLY_CONSISTENCY" != "N" ]; then
-  CONSISTENCY_URL="https://raw.githubusercontent.com/karan-dhiver/design-forge/main/consistency/design-tokens.css"
+  CONSISTENCY_URL="https://raw.githubusercontent.com/officialnullobjectweb/design-forge/main/consistency/design-tokens.css"
   echo -e "  ${YELLOW}→ Downloading design tokens...${NC}"
   mkdir -p consistency
   if curl -fsSL "$CONSISTENCY_URL" -o consistency/design-tokens.css 2>/dev/null; then
@@ -293,7 +293,7 @@ for d in "${FINAL_PLAN[@]}"; do
   echo -e "  ${MAGENTA}│${NC}  ${CYAN}•${NC} ${d}"
 done
 echo -e "  ${MAGENTA}├───────────────────────────────────────────────────────────┤${NC}"
-echo -e "  ${MAGENTA}│${NC}  ${DIM}More resources: https://design-forge-beta.vercel.app${NC}          ${MAGENTA}│${NC}"
+echo -e "  ${MAGENTA}│${NC}  ${DIM}More resources: https://numb.design${NC}                         ${MAGENTA}│${NC}"
 echo -e "  ${MAGENTA}╰───────────────────────────────────────────────────────────╝${NC}"
 echo ""
 echo -e "  ${BOLD}Run ${CYAN}${PM} run dev${NC}${BOLD} to start building!${NC}"

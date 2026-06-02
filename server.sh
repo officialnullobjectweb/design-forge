@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# DesignForge — Permanent Production Server
+# Numb.Design — Permanent Production Server
 # Usage: ./server.sh {start|stop|restart|status|logs}
 
 set -euo pipefail
@@ -16,7 +16,7 @@ start() {
     exit 0
   fi
 
-  echo "Starting DesignForge production server on ${HOST}:${PORT}..."
+  echo "Starting Numb.Design production server on ${HOST}:${PORT}..."
   cd "$APP_DIR"
 
   npm run build 2>>"$LOG_FILE"
@@ -58,13 +58,13 @@ restart() {
 
 status() {
   if [ -f "$PID_FILE" ] && kill -0 "$(cat "$PID_FILE")" 2>/dev/null; then
-    echo "DesignForge server is RUNNING"
+    echo "Numb.Design server is RUNNING"
     echo "  PID:     $(cat "$PID_FILE")"
     echo "  Port:    ${PORT}"
     echo "  URL:     http://localhost:${PORT}"
     echo "  Uptime:  $(ps -o etime= -p "$(cat "$PID_FILE")" | tr -d ' ')"
   else
-    echo "DesignForge server is STOPPED"
+    echo "Numb.Design server is STOPPED"
   fi
 }
 
@@ -77,7 +77,7 @@ case "${1:-help}" in
     "$1"
     ;;
   *)
-    echo "DesignForge Server Manager"
+    echo "Numb.Design Server Manager"
     echo "Usage: $0 {start|stop|restart|status|logs}"
     ;;
 esac

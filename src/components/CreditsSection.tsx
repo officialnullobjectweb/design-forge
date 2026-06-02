@@ -34,7 +34,7 @@ export default function CreditsSection() {
           Powered by Open Source
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-sm text-zinc-500">
-          DesignForge is built entirely on free and open-source tools. 
+          Numb.Design is built entirely on free and open-source tools. 
           Each one made this possible — please support them.
         </p>
 
@@ -72,7 +72,7 @@ export default function CreditsSection() {
 
         <div className="mt-10 rounded-xl border border-zinc-100 bg-zinc-50/50 px-6 py-5">
           <p className="text-xs leading-5 text-zinc-500">
-            <strong className="text-zinc-700">Legal Notice:</strong> DesignForge does not host, distribute, or modify any
+            <strong className="text-zinc-700">Legal Notice:</strong> Numb.Design does not host, distribute, or modify any
             of the listed tools. All trademarks, logos, and brand names belong to their respective owners.
             Each resource is used under its respective open-source license. If you are a creator of a listed
             resource and wish to have it removed, please open an issue on our GitHub repository.

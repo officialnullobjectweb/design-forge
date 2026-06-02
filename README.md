@@ -1,95 +1,80 @@
-# ⚡ DesignForge — Your Free Design Command Center
+# Numb.Design — AI-Powered Frontend Builder
 
-**Aggregate. Combine. Build Premium.** DesignForge collects the best **100% free** UI/UX design resources from across the internet and presents them in one curated hub. No paid tools. No subscriptions. Just the best open-source design ecosystem.
+Tell your AI agent what to build. Numb.Design installs only the packages you need — nothing extra. Premium frontends in 5 minutes from 100% free resources.
 
-## 🎯 The Problem
+## Core Philosophy
 
-Free design resources are scattered across the web. You hunt through bookmarks, Google searches, and GitHub repos just to find what you need. DesignForge solves this by acting as a **central command center** for all free UI/UX resources.
+- **Zero bloat** — Install only what the project actually needs
+- **100% free** — Every resource listed is free and open-source
+- **AI-native** — Your AI agent browses, picks, and installs. You just describe the output
 
-## ✨ What's Inside
+## Quick Start
 
-### 🧩 UI Components
-| Resource | What It Does |
-|---|---|
-| [shadcn/ui](https://ui.shadcn.com) | Copy-paste React components. Radix + Tailwind. Best in class |
-| [Aceternity UI](https://ui.aceternity.com) | Stunning animated components with Framer Motion |
-| [MagicUI](https://magicui.design) | Magical animations — sparkles, meteors, glows, beams |
-| [DaisyUI](https://daisyui.com) | Tailwind component classes. 50+ components, 35+ themes |
-| [Flowbite](https://flowbite.com) | 1000+ Tailwind components. React, Vue, HTML versions |
-
-### 🎨 Icons & Illustrations
-| Resource | What It Does |
-|---|---|
-| [Lucide Icons](https://lucide.dev) | 5000+ beautiful, tree-shakeable icons |
-| [Tabler Icons](https://tabler.io/icons) | 5800+ MIT icons. Outline + filled |
-| [Heroicons](https://heroicons.com) | Tailwind's official icon set. 292 icons |
-| [Storyset](https://storyset.com) | Free animated SVG illustrations |
-| [unDraw](https://undraw.co) | Open-source SVG illustrations. Any color |
-
-### 🎬 Animation & Motion
-| Resource | What It Does |
-|---|---|
-| [Framer Motion](https://motion.dev) | Production-grade React animation library |
-| [GSAP](https://gsap.com) | Professional-grade animation (free on localhost) |
-| [AutoAnimate](https://auto-animate.formkit.com) | One line — automatic smooth animations |
-| [LottieFiles](https://lottiefiles.com) | JSON animations from After Effects |
-
-### 🧊 3D, Canvas & Special FX
-| Resource | What It Does |
-|---|---|
-| [Three.js](https://threejs.org) | 3D scenes in the browser |
-| [React Three Fiber](https://r3f.docs.pmnd.rs) | Three.js as React components |
-| [tsParticles](https://particles.js.org) | Particle effects — confetti, snow, stars |
-| [Recharts](https://recharts.org) | Composable React charts. Fully free |
-
-## 🚀 Quick Start
-
-### One-Command Setup
 ```bash
-bash <(curl -sL https://design-forge-beta.vercel.app/cli/setup.sh)
+npx numb-design init
 ```
 
-This will:
-- Create a Next.js project (if none exists)
-- Install framer-motion, lucide-react, clsx, tailwind-merge
-- Initialize shadcn/ui with essential components
-- Install MagicUI, Recharts, Tabler Icons
+Or use the interactive setup wizard:
 
-### Manual Installation
 ```bash
-# Core
-npm install framer-motion lucide-react clsx tailwind-merge
-
-# shadcn/ui
-npx shadcn@latest init
-npx shadcn@latest add button card input badge dialog dropdown-menu
-
-# Extras
-npm install magicui recharts @tabler/icons-react
+bash <(curl -fsSL https://numb.design/cli/setup.sh)
 ```
 
-## 🏗️ Project Structure
+The wizard asks what you're building, your style preferences, and what features you need — then generates a plan with exact install commands.
+
+## Features
+
+### AI-Powered Selection
+Your AI agent analyzes your requirements and selects exactly the right packages. No more guessing, no more bloat — only what you need.
+
+### Zero Bloat Guarantee
+Only the packages you need are installed. Change your mind? Unused packages are automatically removed. Your workspace stays clean.
+
+### 5-Minute Frontends
+Describe your vision once. The AI handles package selection, installation, and setup. A stunning frontend in minutes, not hours.
+
+## How It Works
+
+1. **Tell your AI agent what you need** — "Build me a premium landing page."
+2. **Numb.Design picks the packages** — The CLI scans the requirement and installs only what's needed. shadcn/ui for components? Framer Motion for animations? Geist for fonts? Done.
+3. **Instant, clean frontend** — A fully working frontend from free, open-source packages. Run cleanup to remove old packages — your space stays pristine.
+
+## CLI Commands
+
+```bash
+# Initialize a new project
+npx numb-design init
+
+# Add packages
+npx numb-design add shadcn-ui lucide framer-motion
+
+# Generate from template
+npx numb-design template landing-page
+
+# Search available packages
+npx numb-design search buttons
 ```
-design-forge/
+
+## Project Structure
+
+```
+numb-design/
 ├── src/
 │   ├── app/              # Next.js app router pages
-│   ├── components/       # React components (Header, Hero, Cards, etc.)
+│   ├── components/       # React components
 │   ├── data/             # Resource definitions & metadata
-│   └── lib/              # Utility functions (cn helper)
+│   └── lib/              # Utility functions
 ├── cli/
-│   └── setup.sh          # One-command bootstrap script
+│   └── setup.sh          # Interactive bootstrap wizard
+├── packages/
+│   └── numb-design/      # npm CLI package source
 └── public/               # Static assets
 ```
 
-## 🤝 Credits & Attribution
+## Resources
 
-DesignForge is a **curation directory** — it does not host, redistribute, or modify any of the listed tools. Every resource belongs to its respective creator and is used under its open-source license (MIT, Apache 2.0, CC0, or similar).
+Every package is hand-curated across categories: UI components, icons, animations, 3D, charts, forms, auth, email, payments, fonts, and more.
 
-**Please support these amazing projects:**
-- ⭐ Star their repos
-- 🐛 Report bugs to them
-- 💖 Consider sponsoring if you can
+## License
 
-## 📜 License
-
-This curation project is MIT licensed. The individual tools listed retain their own licenses.
+MIT

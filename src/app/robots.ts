@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/_not-found',
     },
-    sitemap: 'https://design-forge.vercel.app/sitemap.xml',
+    sitemap: 'https://numb.design/sitemap.xml',
   };
 }

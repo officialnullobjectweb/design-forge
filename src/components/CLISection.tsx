@@ -11,7 +11,7 @@ interface Line {
 }
 
 const terminalLines: Line[] = [
-  { text: 'design-forge-cli@latest ready', type: 'output', delay: 500 },
+  { text: 'numb-design@latest ready', type: 'output', delay: 500 },
   { text: 'Detecting project structure...', type: 'output', delay: 1200 },
   { text: '✓ Found package.json (React + Tailwind)', type: 'success', delay: 2200 },
   { text: 'Installing design resources...', type: 'output', delay: 3000 },
@@ -27,22 +27,22 @@ const terminalLines: Line[] = [
 const commands = [
   {
     label: 'Install CLI Tool',
-    cmd: 'npx design-forge-cli init',
+    cmd: 'npx numb-design init',
     desc: 'Interactive setup for your project',
   },
   {
     label: 'Quick Resource Install',
-    cmd: 'npx design-forge-cli add shadcn-ui lucide framer-motion',
+    cmd: 'npx numb-design add shadcn-ui lucide framer-motion',
     desc: 'Install multiple resources at once',
   },
   {
     label: 'Apply Template',
-    cmd: 'npx design-forge-cli template landing-page',
+    cmd: 'npx numb-design template landing-page',
     desc: 'Scaffold a pre-built template',
   },
   {
     label: 'Search Resources',
-    cmd: 'npx design-forge-cli search buttons',
+    cmd: 'npx numb-design search buttons',
     desc: 'Find resources from the terminal',
   },
 ];
@@ -117,13 +117,13 @@ export default function CLISection() {
                 <span className="h-3 w-3 rounded-full bg-yellow-500/80" />
                 <span className="h-3 w-3 rounded-full bg-green-500/80" />
               </div>
-              <span className="ml-2 text-xs font-mono text-zinc-500">design-forge — bash</span>
+              <span className="ml-2 text-xs font-mono text-zinc-500">numb — bash</span>
             </div>
 
             <div className="p-5 font-mono text-sm leading-6">
               <div className="flex items-center gap-2 text-zinc-500">
                 <span className="text-emerald-400">$</span>
-                <span className="animate-pulse">npx design-forge-cli init</span>
+                <span className="animate-pulse">npx numb-design init</span>
               </div>
 
               <div className="mt-3 space-y-1">
@@ -167,11 +167,11 @@ export default function CLISection() {
                   <Package className="h-5 w-5 text-violet-600" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-zinc-900">design-forge-cli</h3>
+                  <h3 className="text-sm font-semibold text-zinc-900">numb-design</h3>
                   <p className="text-xs text-zinc-500">v1.0.0 &middot; Published on npm</p>
                 </div>
                 <motion.a
-                  href="https://www.npmjs.com/package/design-forge-cli"
+                  href="https://www.npmjs.com/package/numb-design"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="ml-auto inline-flex items-center gap-1.5 rounded-lg bg-zinc-900 px-3.5 py-2 text-xs font-medium text-white transition-all hover:bg-zinc-800"

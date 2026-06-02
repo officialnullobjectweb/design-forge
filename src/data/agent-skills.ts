@@ -25,4 +25,4 @@ export const agentSkillCategories = [
   },
 ];
 
-export const agentSkillInstallCommand = 'npx design-forge-cli skills';
+export const agentSkillInstallCommand = 'npx numb-design skills';

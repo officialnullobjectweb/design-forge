@@ -54,7 +54,7 @@ export default function CreditsPage() {
                 All Resources &amp; Tools
               </h1>
               <p className="mt-2 text-sm text-zinc-500 max-w-2xl">
-                Every free tool and resource aggregated in DesignForge. All belong to their respective creators.
+                Every free tool and resource aggregated in Numb.Design. All belong to their respective creators.
               </p>
             </div>
 

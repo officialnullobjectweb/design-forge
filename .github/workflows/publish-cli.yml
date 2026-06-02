@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "packages/design-forge-cli/**"
+      - "packages/numb-design/**"
   workflow_dispatch:
 
 jobs:
@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: packages/design-forge-cli
+        working-directory: packages/numb-design
 
     steps:
       - uses: actions/checkout@v4
