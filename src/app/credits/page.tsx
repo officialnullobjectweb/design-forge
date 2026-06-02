@@ -54,7 +54,7 @@ export default function CreditsPage() {
                 All Resources &amp; Tools
               </h1>
               <p className="mt-2 text-sm text-zinc-500 max-w-2xl">
-                Every free tool and resource aggregated in Numb.Design. All belong to their respective creators.
+                Every free tool and resource featured in Numb.Design belongs to its original creator. We do not host, distribute, or modify any of these tools — we simply link to them and help you discover them. For a complete list with detailed attribution, see our <a href="https://github.com/officialnullobjectweb/Numb.design" target="_blank" rel="noopener noreferrer" className="text-brand-600 underline underline-offset-2">GitHub README</a>.
               </p>
             </div>
 

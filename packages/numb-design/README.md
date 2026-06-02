@@ -1,154 +1,99 @@
-# Numb.Design CLI
+# Numb.Design
 
-> **Build complete, production-ready frontends from idea to website. One command, token-locked design, 50+ component library.**
+**AI-powered frontend toolkit. Tell your AI agent what to build. We install only what you need — nothing extra.**
 
-Numb.Design is a **token-locked design constitution** for AI agents and humans.
-The constitution enforces 12 colors, 3 type sizes, 9 spacing values, 5 radii, 3 shadows, 2 springs — so every page, every component, every prompt lands on-brand, on-spec, on-budget.
+Numb.Design is a command-line tool and Node.js library that helps you discover, evaluate, and install frontend resources instantly. Instead of researching packages one by one, you describe what you need — and Numb.Design tells you exactly what to install.
 
-No manual setup. No copy-pasting. Just one command and get a buildable, production-ready website.
+It came from a simple frustration: every new project meant hours of browsing, comparing, and manually installing packages — only to end up with dependencies we never used. We built Numb.Design to make that process instant.
 
 ---
 
 ## Quick Start
 
 ```bash
-npx create-numb-app my-app
-cd my-app
-npm install
-npm run dev
+npx numb-design init
 ```
 
-Then add components on demand:
+Follow the interactive prompts to configure your project type, design style, and features. The CLI generates a complete install plan with exact npm commands.
+
+---
+
+## CLI Commands
+
+| Command | What It Does |
+|---|---|
+| `npx numb-design init` | Interactive project wizard — choose type, style, features, get an install plan |
+| `npx numb-design add <resource...>` | Quick-install one or more resources by name (for example: `npx numb-design add shadcn-ui lucide-react framer-motion`) |
+| `npx numb-design search <query>` | Search the entire resource catalog by keyword (for example: `npx numb-design search icons`) |
+| `npx numb-design list` | Show every resource in the catalog, grouped by category |
+| `npx numb-design skills` | Install AI agent skill files into your `.claude/skills/` directory |
+| `npx numb-design --version` | Show version |
+| `npx numb-design --help` | Show help |
+
+### Examples
 
 ```bash
-npx numb add button
-npx numb add card
-npx numb add modal
-npx numb add chart
+# Start a new project
+npx numb-design init
+
+# Install specific resources
+npx numb-design add shadcn-ui lucide-react framer-motion
+
+# Find icon libraries
+npx numb-design search icons
+
+# List everything available
+npx numb-design list
+
+# Install AI agent design skills
+npx numb-design skills
 ```
 
 ---
 
-## What You Get
+## Using the Node.js API
 
-After running `npx create-numb-app my-app`, you get a complete project:
+```javascript
+import { generatePlan, analyzeProject, resources } from 'numb-design';
 
+// Generate an install plan based on project type, style, and features
+const plan = generatePlan(
+  'landing-page',           // project type: landing-page, dashboard, ecommerce, portfolio, blog, saas, web-app
+  ['modern', 'minimal'],    // design style: modern, minimal, dark, glassmorphic, playful
+  ['animations', 'forms']   // required features: animations, forms, auth, icons, charts, 3d, email, payment
+);
+
+// Each item in the plan includes the name, description, and exact install command
+plan.forEach(item => {
+  console.log(`${item.name}: ${item.install}`);
+});
+
+// Analyze an existing project for missing tools
+const recommendations = analyzeProject('./my-project');
+
+// Browse the full resource catalog
+console.log(`Total resources: ${resources.length}`);
 ```
-my-app/
-├── clt.config.ts          # Design DNA — change one value to rebrand
-├── AGENTS.md              # AI rules (read by Cursor, Claude Code, Copilot)
-├── tailwind.config.ts     # Reads tokens from clt.config.ts
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx
-│   │   ├── page.tsx
-│   │   └── globals.css
-│   └── lib/
-│       └── clt.ts         # cn() helper + token exports
-└── package.json
-```
-
-All styling is driven by the design tokens in `clt.config.ts` — edit one file to update everything.
 
 ---
 
-## Token Constitution
-
-The constitution is the moat. It enforces:
-
-| Token | Count | Examples |
-|-------|-------|----------|
-| Colors | 12 | `primary`, `secondary`, `neutral-{100,300,500,900}`, `bg`, `surface`, `success`, `error`, `accent`, `muted` |
-| Type sizes | 3 | `text-df-sm`, `text-df-base`, `text-df-lg` |
-| Spacing | 9 | 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96 px |
-| Radii | 5 | `rounded-none`, `sm`, `DEFAULT`, `lg`, `full` |
-| Shadows | 3 | `shadow-df-sm`, `md`, `lg` |
-| Springs | 2 | `relaxed`, `snappy` |
-
-Every Tailwind class is validated against this list. Off-brand values are rejected at the source.
-
----
-
-## 50+ Component Library (UCUs)
-
-UCU = Universal Component Unit. Every UCU ships with:
-
-- A JSON spec (props, deps, motion, quality score)
-- A `.tsx` template
-- Constitution-validated classes
-- Production-readiness tests
+## How to Publish to npm
 
 ```bash
-npx numb list                    # browse all UCUs
-npx numb show <id>               # show spec
-npx numb add <id>                # copy template to your project
-npx numb validate                # check your code passes the constitution
-```
-
----
-
-## Commands
-
-| Command | Description |
-|---------|-------------|
-| `npx create-numb-app <name>` | Scaffold a new token-locked project |
-| `npx numb create` | Interactive wizard (project type, design style, features) |
-| `npx numb init` | Quick setup with defaults |
-| `npx numb list` | Browse the resource catalog |
-| `npx numb list` | Browse all UCU components |
-| `npx numb show <id>` | Show one UCU's spec |
-| `npx numb add <id>` | Copy a UCU template into your project |
-| `npx numb validate` | Check your project passes the constitution |
-| `npx numb constitution` | Print the full token constitution |
-| `npx numb --version` | Show version |
-| `npx numb --help` | Show help |
-
----
-
-## Programmatic API
-
-```js
-const numb = require('numb-design');
-
-// Validate a className against the constitution
-const result = numb.validator.validateClassString('flex p-6 bg-primary text-neutral-900 rounded-lg');
-// → { valid: true, violations: [] }
-
-// List all UCUs
-const ucus = numb.ucu.listByCategory();
-// → { PRIMITIVES: [...], LAYOUT: [...], ... }
-
-// Load a UCU spec
-const button = numb.ucu.loadUcu('button');
-// → { id: 'button', name: 'Button', category: 'PRIMITIVES', props: {...} }
-```
-
----
-
-## Development
-
-```bash
-git clone https://github.com/numbdesign/numb-design.git
-cd numb-design/packages/numb-design
-
-# Test locally
-node bin/cli.js --help
-
-# Run all tests (46 constitution + 103 UCU + 376 production-readiness)
-npm test
-
-# Run a single suite
-npm run test:constitution
-npm run test:ucu
-npm run test:ucu:prod
+# From the packages/numb-design directory
+npm login
+npm publish --access public
 ```
 
 ---
 
 ## Links
 
-- **GitHub**: [https://github.com/numbdesign/numb-design](https://github.com/numbdesign/numb-design)
-- **npm**: [https://www.npmjs.com/package/numb-design](https://www.npmjs.com/package/numb-design)
+- **Website:** [https://numb.design](https://numb.design)
+- **Documentation:** [https://numb.design/docs](https://numb.design/docs)
+- **GitHub:** [https://github.com/officialnullobjectweb/Numb.design](https://github.com/officialnullobjectweb/Numb.design)
+- **npm:** [https://www.npmjs.com/package/numb-design](https://www.npmjs.com/package/numb-design)
+- **Interactive Wizard:** [https://numb.design/wizard](https://numb.design/wizard)
 
 ---
 
