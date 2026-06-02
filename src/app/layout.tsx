@@ -75,7 +75,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} min-h-full antialiased`}>
       <head>
         <script
           type="application/ld+json"
