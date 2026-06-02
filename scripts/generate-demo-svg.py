@@ -55,6 +55,13 @@ lines = [
     ("", " \x1b[38;5;33m?\x1b[0m \x1b[1mRun this install plan now?\x1b[0m  \x1b[38;5;47m(Y/n)\x1b[0m"),
 ]
 
+COLOR_MAP = {
+    47: '#4ade80',
+    33: '#4ade80',
+    245: '#86efac',
+    240: '#ffffff',
+}
+
 def ansi_to_html(s):
     import re
     parts = re.split(r'(\x1b\[[0-9;]*m)', s)
@@ -64,19 +71,18 @@ def ansi_to_html(s):
     for part in parts:
         if part.startswith('\x1b['):
             codes = part[2:-1].split(';')
-            for c in codes:
+            i = 0
+            while i < len(codes):
+                c = codes[i]
                 if c == '0':
                     fg = None; bold = False
                 elif c == '1':
                     bold = True
-                elif c == '38;5;47':
-                    fg = '#4ade80'
-                elif c == '38;5;33':
-                    fg = '#ffffff'
-                elif c == '38;5;245':
-                    fg = '#86efac'
-                elif c == '38;5;240':
-                    fg = '#ffffff'
+                elif c == '38' and i + 2 < len(codes) and codes[i+1] == '5':
+                    color_num = int(codes[i+2])
+                    fg = COLOR_MAP.get(color_num)
+                    i += 2
+                i += 1
         else:
             style = []
             if fg: style.append(f'fill:{fg}')
