@@ -3,6 +3,7 @@ const pc = require('picocolors');
 const fs = require('fs');
 const path = require('path');
 const catalog = require('../resources/catalog.json');
+const skillManager = require('../skills/skill-manager');
 
 const RESOURCE_MAP = {
   'tailwind-css':       { name: 'Tailwind CSS',       install: 'npm install -D tailwindcss @tailwindcss/postcss', category: 'core' },
@@ -31,19 +32,21 @@ function showHelp() {
   console.log();
   console.log(`  ${pc.bold('Usage:')}`);
   console.log(`    ${pc.cyan('npx numb-design init')}              ${pc.dim('Interactive project wizard')}`);
-  console.log(`    ${pc.cyan('npx numb-design add <pkg...>')}      ${pc.dim('Quick-install resources')}`);
-  console.log(`    ${pc.cyan('npx numb-design search <query>')}    ${pc.dim('Search resource catalog')}`);
-  console.log(`    ${pc.cyan('npx numb-design list')}              ${pc.dim('Show all resources')}`);
-  console.log(`    ${pc.cyan('npx numb-design skills')}            ${pc.dim('Install AI agent skills')}`);
-  console.log(`    ${pc.cyan('npx numb-design template <name>')}   ${pc.dim('Scaffold a template')}`);
-  console.log(`    ${pc.cyan('npx numb-design --version')}         ${pc.dim('Show version')}`);
-  console.log(`    ${pc.cyan('npx numb-design --help')}            ${pc.dim('Show this help')}`);
-  console.log();
-  console.log(`  ${pc.bold('Examples:')}`);
-  console.log(`    ${pc.dim('$')} ${pc.green('npx numb-design init')}`);
-  console.log(`    ${pc.dim('$')} ${pc.green('npx numb-design add shadcn-ui framer-motion')}`);
-  console.log(`    ${pc.dim('$')} ${pc.green('npx numb-design search icons')}`);
-  console.log(`    ${pc.dim('$')} ${pc.green('npx numb-design skills')}`);
+    console.log(`    ${pc.cyan('npx numb-design add <pkg...>')}      ${pc.dim('Quick-install resources')}`);
+    console.log(`    ${pc.cyan('npx numb-design search <query>')}    ${pc.dim('Search resource catalog')}`);
+    console.log(`    ${pc.cyan('npx numb-design list')}              ${pc.dim('Show all resources')}`);
+    console.log(`    ${pc.cyan('npx numb-design skills list')}       ${pc.dim('List curated AI agent skills')}`);
+    console.log(`    ${pc.cyan('npx numb-design skills init')}       ${pc.dim('Install default skills for project')}`);
+    console.log(`    ${pc.cyan('npx numb-design skills verify')}     ${pc.dim('Check skill installation status')}`);
+    console.log(`    ${pc.cyan('npx numb-design template <name>')}   ${pc.dim('Scaffold a template')}`);
+    console.log(`    ${pc.cyan('npx numb-design --version')}         ${pc.dim('Show version')}`);
+    console.log(`    ${pc.cyan('npx numb-design --help')}            ${pc.dim('Show this help')}`);
+    console.log();
+    console.log(`  ${pc.bold('Examples:')}`);
+    console.log(`    ${pc.dim('$')} ${pc.green('npx numb-design init')}`);
+    console.log(`    ${pc.dim('$')} ${pc.green('npx numb-design add shadcn-ui framer-motion')}`);
+    console.log(`    ${pc.dim('$')} ${pc.green('npx numb-design search icons')}`);
+    console.log(`    ${pc.dim('$')} ${pc.green('npx numb-design skills init')}`);
   console.log();
 }
 
@@ -222,24 +225,225 @@ async function main() {
   }
 
   if (command === 'skills') {
-    const targetDir = args[1] ? path.resolve(args[1]) : process.cwd();
-    const skillsDir = path.join(__dirname, '..', 'agent-skills');
-    if (!fs.existsSync(skillsDir)) {
-      console.log(`  ${pc.red('✗')} agent-skills directory not found`);
-      process.exit(1);
+    const sub = args[1];
+    if (!sub || sub === '--help' || sub === '-h') {
+      console.log();
+      console.log(`  ${pc.inverse(' Numb.Design Skills ')} ${pc.dim('— Curated AI agent skills')}`);
+      console.log();
+      console.log(`  ${pc.bold('Usage:')}`);
+      console.log(`    ${pc.cyan('numb skills list')}              ${pc.dim('List all curated skills')}`);
+      console.log(`    ${pc.cyan('numb skills search <query>')}    ${pc.dim('Search curated skill registry')}`);
+      console.log(`    ${pc.cyan('numb skills install <ids...>')}  ${pc.dim('Install skill(s) by ID')}`);
+      console.log(`    ${pc.cyan('numb skills init')}              ${pc.dim('Install default skills for project type')}`);
+      console.log(`    ${pc.cyan('numb skills verify')}            ${pc.dim('Check skill installation status')}`);
+      console.log();
+      console.log(`  ${pc.bold('Examples:')}`);
+      console.log(`    ${pc.dim('$')} ${pc.green('numb skills list')}`);
+      console.log(`    ${pc.dim('$')} ${pc.green('numb skills search animation')}`);
+      console.log(`    ${pc.dim('$')} ${pc.green('numb skills install ui-ux-pro-max epic-design')}`);
+      console.log(`    ${pc.dim('$')} ${pc.green('numb skills init')}`);
+      console.log(`    ${pc.dim('$')} ${pc.green('numb skills verify')}`);
+      console.log();
+      process.exit(0);
     }
-    const categories = fs.readdirSync(skillsDir);
-    let count = 0;
-    categories.forEach(cat => {
-      const src = path.join(skillsDir, cat, 'SKILL.md');
-      if (!fs.existsSync(src)) return;
-      const dest = path.join(targetDir, '.claude', 'skills', cat, 'SKILL.md');
-      fs.mkdirSync(path.dirname(dest), { recursive: true });
-      fs.copyFileSync(src, dest);
-      count++;
-    });
-    console.log(`  ${pc.green('✓')} Installed ${count} AI agent skills to ${targetDir}/.claude/skills/`);
-    process.exit(0);
+
+    if (sub === 'list') {
+      const skills = skillManager.getRegistry().skills;
+      console.log();
+      console.log(`  ${pc.inverse(' Curated Skills ')} ${pc.dim(`— ${skills.length} total`)}`);
+      console.log();
+      for (const skill of skills) {
+        const badge = skill.bundled ? pc.dim('(bundled)') : pc.cyan('(curated)');
+        const starStr = skill.quality.stars ? `${pc.yellow('★')} ${skill.quality.stars}` : '';
+        console.log(`  ${pc.bold(skill.id)} ${badge} ${starStr}`);
+        console.log(`  ${pc.dim(skill.description.slice(0, 100))}`);
+        console.log(`  ${pc.dim('→')} types: ${skill.projectTypes.join(', ')}`);
+        console.log();
+      }
+      process.exit(0);
+    }
+
+    if (sub === 'search') {
+      const query = (args.slice(2).join(' ') || '').toLowerCase();
+      if (!query) {
+        console.log(`  ${pc.red('✗')} Usage: numb skills search <query>`);
+        process.exit(1);
+      }
+      const results = skillManager.searchSkills(query);
+      console.log();
+      console.log(`  ${pc.inverse(' Skill Search ')} ${pc.dim(`"${query}" — ${results.length} matches`)}`);
+      console.log();
+      if (results.length === 0) {
+        console.log(`  ${pc.dim('No skills match your query.')}`);
+      } else {
+        for (const skill of results) {
+          const badge = skill.bundled ? pc.dim('(bundled)') : pc.cyan('(curated)');
+          const starStr = skill.quality.stars ? `${pc.yellow('★')} ${skill.quality.stars}` : '';
+          console.log(`  ${pc.green('•')} ${pc.bold(skill.id)} ${badge} ${starStr}`);
+          console.log(`    ${pc.dim(skill.description.slice(0, 100))}`);
+          console.log(`    ${pc.dim('→')} ${skill.type} · ${skill.projectTypes.join(', ')}`);
+        }
+      }
+      console.log();
+      process.exit(0);
+    }
+
+    if (sub === 'install') {
+      const skillIds = args.slice(2);
+      if (skillIds.length === 0) {
+        console.log(`  ${pc.red('✗')} Usage: numb skills install <id...>`);
+        console.log(`  ${pc.dim('Example:')} ${pc.cyan('numb skills install ui-ux-pro-max epic-design')}`);
+        console.log(`  ${pc.dim('Run')} ${pc.cyan('numb skills list')} ${pc.dim('to see all available skills.')}`);
+        process.exit(1);
+      }
+
+      const targetDir = process.cwd();
+
+      const unknown = skillIds.filter(id => !skillManager.getSkillById(id));
+      if (unknown.length > 0) {
+        console.log(`  ${pc.red('✗')} Unknown skill(s): ${unknown.join(', ')}`);
+        console.log(`  ${pc.dim('Run')} ${pc.cyan('numb skills list')} ${pc.dim('to see all available skills.')}`);
+        process.exit(1);
+      }
+
+      console.log();
+      console.log(`  ${pc.inverse(' Installing Skills ')}`);
+      console.log();
+
+      const results = await skillManager.installSkills(skillIds, 'custom', targetDir);
+
+      for (const s of results.installed) {
+        console.log(`  ${pc.green('✓')} ${pc.bold(skillManager.getSkillById(s.id).name)} ${pc.dim(s.path)}`);
+      }
+      for (const s of results.skipped) {
+        console.log(`  ${pc.yellow('○')} ${pc.bold(skillManager.getSkillById(s.id).name)} ${pc.dim('— already installed')}`);
+      }
+      for (const s of results.failed) {
+        console.log(`  ${pc.red('✗')} ${s.id} ${pc.dim('— ' + s.error)}`);
+      }
+
+      if (results.config) {
+        console.log();
+        console.log(`  ${pc.green('✓')} Generated enforcement config: ${pc.dim(results.config.path)}`);
+      }
+
+      console.log();
+      const total = results.installed.length + results.skipped.length;
+      console.log(`  ${pc.green(`Skills ready: ${results.installed.length} installed, ${results.skipped.length} already present`)}`);
+      console.log();
+      process.exit(0);
+    }
+
+    if (sub === 'init') {
+      const { intro, select, multiselect, confirm, outro, cancel, spinner, text } = await import('@clack/prompts');
+
+      intro(pc.inverse(' Numb.Design Skills Init '));
+
+      const projectType = await select({
+        message: 'What type of project are you building?',
+        options: [
+          { value: 'landing-page', label: 'Landing Page' },
+          { value: 'dashboard', label: 'Dashboard / Admin' },
+          { value: 'ecommerce', label: 'E-Commerce' },
+          { value: 'portfolio', label: 'Portfolio' },
+          { value: 'blog', label: 'Blog' },
+          { value: 'saas', label: 'SaaS App' },
+          { value: 'web-app', label: 'Web App' },
+        ],
+      }) || 'landing-page';
+
+      const defaultSkills = skillManager.getDefaultSkills(projectType);
+
+      console.log();
+      console.log(`  ${pc.bold('Recommended skills for ' + projectType + ':')}`);
+      console.log();
+      for (const s of defaultSkills) {
+        const badge = s.bundled ? pc.dim('(bundled)') : pc.cyan('(curated)');
+        console.log(`  ${pc.green('•')} ${pc.bold(s.id)} ${badge}`);
+        console.log(`    ${pc.dim(s.description.slice(0, 90))}`);
+      }
+      console.log();
+
+      const proceed = await confirm({ message: 'Install these skills?', initialValue: true });
+      if (!proceed) {
+        const customIds = await text({
+          message: 'Enter skill IDs to install (comma-separated):',
+          placeholder: 'ui-ux-pro-max, epic-design, a11y-audit',
+          validate: (val) => val ? undefined : 'Enter at least one skill ID',
+        });
+        if (!customIds) {
+          cancel('No skills installed.');
+          process.exit(0);
+        }
+        const ids = customIds.split(',').map(s => s.trim()).filter(Boolean);
+        const s = spinner();
+        s.start('Installing skills...');
+        const results = await skillManager.installSkills(ids, projectType, process.cwd());
+        s.stop('Done');
+
+        for (const r of results.installed) console.log(`  ${pc.green('✓')} ${r.id}`);
+        for (const r of results.failed) console.log(`  ${pc.red('✗')} ${r.id}: ${r.error}`);
+        if (results.config) console.log(`  ${pc.green('✓')} Enforcement config generated`);
+        outro(pc.green(`Skills installed: ${results.installed.length}`));
+        process.exit(0);
+      }
+
+      const s = spinner();
+      s.start('Installing default skills...');
+      const skillIds = defaultSkills.map(s => s.id);
+      const results = await skillManager.installSkills(skillIds, projectType, process.cwd());
+      s.stop('Done');
+
+      console.log();
+      for (const r of results.installed) {
+        console.log(`  ${pc.green('✓')} ${pc.bold(r.id)} ${pc.dim('installed')}`);
+      }
+      for (const r of results.skipped) {
+        console.log(`  ${pc.yellow('○')} ${pc.bold(r.id)} ${pc.dim('already present')}`);
+      }
+      if (results.config) {
+        console.log(`  ${pc.green('✓')} Enforcement config written to ${pc.dim(results.config.path)}`);
+      }
+      console.log();
+
+      outro(pc.green(`Skills ready: ${results.installed.length} installed, ${results.skipped.length} already present`));
+      process.exit(0);
+    }
+
+    if (sub === 'verify') {
+      const targetDir = process.cwd();
+      const checks = skillManager.verifyInstallation(targetDir);
+
+      console.log();
+      console.log(`  ${pc.inverse(' Skill Verification ')} ${pc.dim(`— ${targetDir}`)}`);
+      console.log();
+
+      const presentCount = checks.present.length;
+      const missingCount = checks.missing.length;
+
+      console.log(`  ${pc.bold('Installed:')} ${presentCount} skills`);
+      if (checks.present.length > 0) {
+        console.log(`  ${checks.present.map(id => `  ${pc.green('✓')} ${id}`).join('\n')}`);
+      }
+      console.log();
+
+      if (checks.missing.length > 0) {
+        console.log(`  ${pc.bold('Missing:')} ${missingCount} skills`);
+        console.log(`  ${checks.missing.map(id => `  ${pc.yellow('○')} ${id}`).join('\n')}`);
+        console.log();
+      }
+
+      if (checks.rules) {
+        console.log(`  ${pc.green('✓')} Enforcement rules ${pc.dim('.claude/rules/numb-design-enforcement.mdc')}`);
+      } else {
+        console.log(`  ${pc.yellow('○')} Enforcement rules not found. Run ${pc.cyan('numb skills install <ids>')} first.`);
+      }
+      console.log();
+      process.exit(0);
+    }
+
+    console.log(`  ${pc.red('✗')} Unknown skills subcommand: ${sub}`);
+    process.exit(1);
   }
 
   if (command === 'template') {

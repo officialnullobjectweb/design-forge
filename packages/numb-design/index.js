@@ -127,8 +127,19 @@ function analyzeProject(dir) {
   return recommendations;
 }
 
+const skillManager = require('./skills/skill-manager');
+
 module.exports = {
   generatePlan,
   analyzeProject,
   resources: catalog,
+  skills: {
+    getRegistry: skillManager.getRegistry,
+    searchSkills: skillManager.searchSkills,
+    getDefaultSkills: skillManager.getDefaultSkills,
+    getSkillById: skillManager.getSkillById,
+    installSkills: skillManager.installSkills,
+    verifyInstallation: skillManager.verifyInstallation,
+    generateAgentConfig: skillManager.generateAgentConfig,
+  },
 };
